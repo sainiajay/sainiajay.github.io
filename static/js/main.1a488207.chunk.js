@@ -1,0 +1,2 @@
+(this["webpackJsonpsainiajay.github.io"]=this["webpackJsonpsainiajay.github.io"]||[]).push([[0],[,,,function(e,a,n){e.exports=n(10)},,,,,function(e,a,n){},function(e,a,n){},function(e,a,n){"use strict";n.r(a);var t=n(0),i=n.n(t),r=n(2),c=n.n(r);n(8),n(9);var o=function(){return i.a.createElement("div",{className:"App"},i.a.createElement("header",{className:"App-header"},"Ajay Saini"))};c.a.render(i.a.createElement(i.a.StrictMode,null,i.a.createElement(o,null)),document.getElementById("root"))}],[[3,1,2]]]);
+//# sourceMappingURL=main.1a488207.chunk.js.map
