@@ -1,0 +1,7 @@
+.Frame {
+    position: relative;
+    display: flex;
+    height: calc(100vh - 150px);
+    width: 100%;
+    justify-content: center;
+}
