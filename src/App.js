@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+import Hello from './components/Hello/Hello';
+import Skills from './components/Skills/Skills';
+
+const  App = () => {
   return (
     <div className="App">
       <div className="Nav-Links-Container">
@@ -18,13 +21,14 @@ function App() {
           Education
         </a>
       </div>
-      <h1 className="App-header">AJAY SAINI</h1>
+      <Hello />
+      <Skills />
       <div className="Social-Links">
-        <i class="lni lni-linkedin" />
-        <i class="lni lni-github" />
-        <i class="lni lni-stackoverflow" />
-        <i class="lni lni-twitter" />
-        <i class="lni lni-medium" />
+        <i className="lni lni-linkedin" />
+        <i className="lni lni-github" />
+        <i className="lni lni-stackoverflow" />
+        <i className="lni lni-twitter" />
+        <i className="lni lni-medium" />
       </div>
     </div>
   );
