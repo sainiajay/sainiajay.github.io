@@ -10,14 +10,34 @@ import { ReactComponent as ReactJsLogo } from './../../assets/img/react.svg';
 import { ReactComponent as MongoDbLogo } from './../../assets/img/mongodb.svg';
 import { ReactComponent as DockerLogo } from './../../assets/img/docker.svg';
 
+const SkillItem = (props) => 
+    <div className="Skill-Wrapper">
+        <div className="Skill-Container">
+            {props.children}
+        </div>
+        <div className="Skill-Name">{props.name}</div>
+    </div>
+
 const Skills = () => 
-    <div>
-        <JavaLogo width="200px" height="200px"/>
-        <GraphQlLogo width="200px" height="200px"/>
-        <NodeJsLogo width="200px" height="200px"/>
-        <ReactJsLogo width="200px" height="200px"/>
-        <MongoDbLogo width="200px" height="200px"/>
-        <DockerLogo width="200px" height="200px"/>
+    <div className="Skill-List">
+        <SkillItem name="Java">
+            <JavaLogo className="Skill-Logo"/>
+        </SkillItem>
+        <SkillItem name="GraphQL">
+            <GraphQlLogo className="Skill-Logo" />
+        </SkillItem>
+        <SkillItem name="NodeJS">
+            <NodeJsLogo className="Skill-Logo" />
+        </SkillItem>
+        <SkillItem name="ReactJS">
+            <ReactJsLogo className="Skill-Logo" />
+        </SkillItem>
+        <SkillItem name="MongoDB">
+            <MongoDbLogo className="Skill-Logo" />
+        </SkillItem>
+        <SkillItem name="Docker">
+            <DockerLogo className="Skill-Logo" />
+        </SkillItem>
     </div>
 
 export default withFrame(Skills);
