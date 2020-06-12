@@ -1,17 +1,21 @@
 .Skill-List {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .Skill-Wrapper {
     overflow: hidden;
-    background-color: #fff;
+    background-color: #191919;
     border-radius: 6px;
-    box-shadow: 0 4px 10px 0 rgba(189, 208, 223, .25);
     transition: transform 100ms ease-out;
+    margin: 10px;
+    align-self: center;
 }
 
 .Skill-Container {
     position: relative;
+    padding: 20px;
 }
 
 .Skill-Name {
@@ -30,6 +34,6 @@
 }
 
 .Skill-Logo {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
