@@ -3,6 +3,9 @@ import './App.css';
 
 import Hello from './components/Hello/Hello';
 import Skills from './components/Skills/Skills';
+import Projects from './components/Projects/Projects';
+import Work from './components/Work/Work';
+import Education from './components/Education/Education';
 
 const  App = () => {
   return (
@@ -22,7 +25,10 @@ const  App = () => {
         </a>
       </div>
       <Hello />
+      <Work />
+      <Projects />
       <Skills />
+      <Education />
       <div className="Social-Links">
         <i className="lni lni-linkedin" />
         <i className="lni lni-github" />
