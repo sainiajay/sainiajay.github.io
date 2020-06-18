@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import Hello from './components/Hello/Hello';
-import Skills from './components/Skills/Skills';
-import Projects from './components/Projects/Projects';
-import Work from './components/Work/Work';
-import Education from './components/Education/Education';
+import Hello from './components/Hello';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Work from './components/Work';
+import Education from './components/Education';
 
 const  App = () => {
   return (
