@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import Menu from '../../components/Menu';
+
 const StyledContainer = styled.header`
   position: fixed;
   top: 0;
@@ -120,7 +122,7 @@ const StyledHamburgerInner = styled.div`
 
 const Header = () => {
   const [menuOpen, updateMenu] = useState(false);
-  
+
   return (
   <StyledContainer>
     <StyledNav>
@@ -130,6 +132,7 @@ const Header = () => {
         </StyledHamburgerBox>
       </StyledHamburger>
     </StyledNav>
+    <Menu menuOpen={menuOpen}/>
   </StyledContainer>
   );
 }
