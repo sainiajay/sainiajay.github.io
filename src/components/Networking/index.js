@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
 
 const Item = styled.i`
   margin: 10px;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 2em;
   align-self: flex-end;
   cursor: pointer;
