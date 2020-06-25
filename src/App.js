@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, css } from 'styled-components'
 import './App.css';
 
 import Hello from './components/Hello';
@@ -24,15 +24,41 @@ const Pointer = styled.div`
     transition-timing-function: linear;
 `;
 
+const sizes = {
+  giant: 1440,
+  bigDesktop: 1200,
+  desktop: 1000,
+  tablet: 768,
+  thone: 600,
+  phablet: 480,
+  phone: 376,
+  tiny: 330,
+};
+
+const media = Object.keys(sizes).reduce((accumulator, label) => {
+  const emSize = sizes[label] / 16;
+  accumulator[label] = (...args) => css`
+    @media (max-width: ${emSize}em) {
+      ${css(...args)};
+    }
+  `;
+  return accumulator;
+}, {});
+
 const App = () => {
+
   const theme = {
     colors: {
       green: '#fff',
-      navy: '#00f'
+      navy: '#00f',
+      grey: '#121212'
     },
     hamburgerWidth: 20,
     navScrollHeight: 40,
-    navHeight: 30
+    navHeight: 30,
+    tabHeight: 30,
+    tabWidth: 120,
+    media
   };
 
   const [X, updateX] = useState(0); 
