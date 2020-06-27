@@ -195,16 +195,28 @@ const Work = () => {
             node: {
                 company: 'Deloitte Consulting',
                 title: 'Consultant',
-                range: '',
-                html: ''
+                range: 'June, 2019 - Today',
+                html: `
+                  <ul>
+                    <li>Write modern, performant, maintainable code for a diverse array of client and internal projects</li>
+                    <li>Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, Gatsby, React, Craft, Wordpress, Prismic, and Netlify</li>
+                    <li>Communicate with multi-disciplinary teams of engineers, designers, producers, and clients on a daily basis</li>
+                  </ul>
+                `
             }
         },
         {
             node: {
                 company: 'Tata Consultancy Services',
                 title: 'Assistant Systems Engineer',
-                range: '',
-                html: ''
+                range: 'August, 2017 - May, 2019',
+                html: `
+                  <ul>
+                    <li>Developed and shipped highly interactive web applications for Apple Music using Ember.js</li>
+                    <li>Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs</li>
+                    <li>Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browsers</li>
+                  </ul>
+                `
             }
         }
     ];

@@ -17,6 +17,7 @@ a:focus {
   padding-bottom: 1px;
   position: relative;
   white-space: nowrap;
+  color: #fff;
 }
 
 a:hover::after {

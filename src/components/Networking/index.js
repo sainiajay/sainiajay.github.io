@@ -19,9 +19,9 @@ const Item = styled.i`
 
 const Networking = () => 
     <StyledContainer>
-        <Item className="lni lni-linkedin" />
-        <Item className="lni lni-github" />
-        <Item className="lni lni-twitter" />
+        <Item className="lni lni-linkedin-original" />
+        <Item className="lni lni-github-original" />
+        <Item className="lni lni-twitter-original" />
         <Item className="lni lni-medium" />
     </StyledContainer>
 
