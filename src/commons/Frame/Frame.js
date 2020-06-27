@@ -1,9 +1,21 @@
 import React from 'react';
-import './Frame.css'
+import styled from 'styled-components';
+
+
+const Div = styled.div`
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+    & > * {
+        align-self: center;
+    }
+`;
 
 const withFrame = (Element) => () =>
-    <div className="Frame">
+    <Div>
         <Element />
-    </div>
+    </Div>
 
 export default withFrame;
