@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import withFrame from '../../commons/Frame/Frame';
 
@@ -39,7 +39,6 @@ const StyledGrid = styled.div`
 const StyledProjectInner = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   position: relative;
   padding: 2rem 1.75rem;
   height: 100%;
@@ -68,7 +67,7 @@ const StyledFolder = styled.i`
 `;
 
 const StyledProjectLinks = styled.div`
-   float: right;
+   margin-left: auto;
 `;
 
 const StyledIconLink = styled.a`
@@ -85,6 +84,7 @@ const StyledProjectName = styled.h5`
 
 const StyledProjectDescription = styled.div`
   font-size: 14px;
+  display: flex;
 `;
 
 const StyledTechList = styled.ul`
@@ -105,13 +105,19 @@ const StyledTechList = styled.ul`
   }
 `;
 
+const Footer = styled.footer`
+   display: flex;
+   margin-top: auto;
+`;
+
+
 const projects = [
    {
       title: 'Leetcode Clone',
       github: '',
       url: '#',
       tech: ['Java', 'SpringBoot', 'MongoDB', 'React'],
-      html: `Inspired by <a href="http://leetcode.com">leetcode.com</a>. Here aspiring software engineers can explore and practice wide variety of algorithmic problems.`
+      html: `Inspired by leetcode.com. Here aspiring software engineers can explore and practice wide variety of algorithmic problems.`
    },
    {
       title: 'Blackbox',
@@ -167,7 +173,7 @@ const Projects = () =>
                   </StyledProjectHeader>
                   <StyledProjectName>{title}</StyledProjectName>
                   <StyledProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
-                  <footer>
+                  <Footer>
                      {tech && (
                      <StyledTechList>
                         {tech.map((tech, i) => (
@@ -175,7 +181,7 @@ const Projects = () =>
                         ))}
                      </StyledTechList>
                      )}
-                  </footer>
+                  </Footer>
                </StyledProjectInner>
             </StyledProject>
          );

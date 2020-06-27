@@ -18,7 +18,7 @@ const Sidebar = styled.aside`
   flex-direction: column;
   background-color: #010101;
   padding: 50px;
-  width: calc(50% - 100px);
+  width: 50%;
   height: 100%;
   position: relative;
   right: 0;
