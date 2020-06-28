@@ -10,6 +10,7 @@ import Work from './components/Work';
 import Education from './components/Education';
 import Header from './components/Header';
 import Networking from './components/Networking';
+import StoryLine from './components/Storyline';
 
 const Pointer = styled.div`
     position: fixed;
@@ -74,10 +75,9 @@ const App = () => {
       <div className="App" onMouseMove={event => onMouseMove(event)}>
         <Header />
         <Hello />
-        <Work />
         <Projects />
         <Skills />
-        <Education />
+        <StoryLine />
         <Networking />
       </div>
     </ThemeProvider>

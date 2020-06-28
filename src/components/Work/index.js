@@ -136,8 +136,8 @@ const StyledJobTitle = styled.h4`
   margin-top: 0;
 `;
 
-const StyledCompany = styled.span`
-  color: '#fff';
+const StyledCompany = styled.div`
+  color: '#000';
 `;
 
 const StyledJobDetails = styled.h5`
@@ -218,7 +218,21 @@ const Work = () => {
                   </ul>
                 `
             }
-        }
+        },
+        {
+          node: {
+              company: 'IMS Engineering College',
+              title: 'Computer Science and Engineering',
+              range: '2013 - 2017',
+              html: `
+                <ul>
+                  <li>Developed and shipped highly interactive web applications for Apple Music using Ember.js</li>
+                  <li>Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs</li>
+                  <li>Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browsers</li>
+                </ul>
+              `
+          }
+      }
     ];
 
     return (

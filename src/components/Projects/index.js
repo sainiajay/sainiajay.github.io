@@ -74,6 +74,7 @@ const StyledIconLink = styled.a`
   position: relative;
   padding: 10px;
   font-weight: bold;
+  color: #fff;
 `;
 
 const StyledProjectName = styled.h5`
