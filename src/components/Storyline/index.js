@@ -4,7 +4,9 @@ import withFrame from '../../commons/Frame/Frame';
 
 const StyledContainer = styled.div`
   position: relative;
-  width: 800px;
+  ${({ theme }) => theme.media.desktop`
+    max-width: 400px;
+  `}
 `;
 
 const Timeline = styled.ol`
@@ -12,7 +14,7 @@ const Timeline = styled.ol`
     width: 100%;
     margin: 0 auto;
     margin-top: 20px;
-    padding: 1em 0;
+    padding: 2em 0;
     list-style-type: none;
     &:before {
         position: absolute;
@@ -36,15 +38,17 @@ const Timeline = styled.ol`
 
 const TimelineCardWrapper = styled.div`
     position: relative;
-    width: 50%;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-flow: column nowrap;
+    z-index: 100;
+    justify-content: center;
 `;
 
-const TimelineImage = styled.i`
+const TimelineImage = styled.div`
     height: 35px;
     min-width: 35px;
-    display: inline-block;
+    display: flex;
     background: #000;
     border-radius: 50%;
     border: 2px solid #fff;
@@ -52,7 +56,8 @@ const TimelineImage = styled.i`
     color: #fff;
     font-size: 20px;
     padding: 5px;
-    text-align: center;
+    justify-content: center;
+    margin: 10px auto;
 `;
 
 const TimeSpan = styled.div``;
@@ -60,14 +65,15 @@ const TimeSpan = styled.div``;
 const TimelineCard = styled.div`
     color: #fff;
     position: relative;
-    display: inline;
+    display: flex;
+    flex-flow: column nowrap;
     background: #121212;
-    padding: 6px 10px;
+    padding: 10px;
     border-radius: 5px;
     
     font-weight: 600;
     text-align: left;
-    margin: 0 10px;
+
     &:after {
         content: "";
         position: absolute;
@@ -80,14 +86,18 @@ const TimelineCard = styled.div`
     }
 `;
 
-const StyledJobTitle = styled.div``;
+const StyledJobTitle = styled.div`
+    margin: 0 5px;
+`;
 
 const StyledCompany = styled.div``;
 
 const Description = styled.div`
     text-align: justify;
+    font-size: 12px;
+    color: #e9e9e9;
+    font-weight: lighter;
 `;
-
 
 const TimelineItem = styled.li`
     padding: 1em 0;
@@ -98,14 +108,21 @@ const TimelineItem = styled.li`
         clear: both;
         visibility: hidden;
     }
-    &:nth-child(even) > ${TimelineCardWrapper} {
+    /* &:nth-child(even) > ${TimelineCardWrapper} {
         margin-left: auto;
-        flex-direction: row-reverse;
+        flex-direction: row;
     }
     
     &:nth-child(odd) > ${TimelineCardWrapper} {
         margin-right: auto;
-        flex-direction: row;
+        flex-direction: row-reverse;
+    }
+
+    ${TimelineCardWrapper} {
+        ${({ theme }) => theme.media.thone`
+            margin: 0;
+            flex-direction: row;
+        `}
     }
 
     &:nth-child(even) ${TimelineImage} {
@@ -113,6 +130,10 @@ const TimelineItem = styled.li`
     }
     &:nth-child(odd) ${TimelineImage} {
         margin-right: -17.5px;
+        ${({ theme }) => theme.media.thone`
+            margin-left: -17.5px;
+            margin-right: 0;
+        `}
     }
 
     &:nth-child(even) ${TimelineCard}:after {
@@ -123,9 +144,15 @@ const TimelineItem = styled.li`
     &:nth-child(odd) ${TimelineCard}:after {
         left: 100%;
         border-left-color: #121212;
-    }
+        ${({ theme }) => theme.media.thone`
+            right: 100%;
+            border-right-color: #121212;
+            left: unset;
+            border-left-color: transparent;
+        `}
+    } */
 
-    &:nth-child(even) ${StyledJobTitle} {
+    /* &:nth-child(even) ${StyledJobTitle} {
         text-align: left;
     }
 
@@ -139,7 +166,7 @@ const TimelineItem = styled.li`
 
     &:nth-child(odd) ${TimeSpan} {
         text-align: right;
-    }
+    } */
 `;
 
 const data = [
@@ -160,8 +187,8 @@ const data = [
     },
     {
         node: {
-            company: 'Tata Consultancy Services',
-            title: 'Assistant Systems Engineer',
+            company: 'TCS',
+            title: 'Assistant Engineer',
             timeSpan: 'August, 2017 - May, 2019',
             type: "PROFESSIONAL",
             html: `
@@ -176,7 +203,7 @@ const data = [
     {
       node: {
           company: 'IMS Engineering College',
-          title: 'Computer Science and Engineering',
+          title: 'CS Grad (B.Tech.)',
           timeSpan: '2013 - 2017',
           type: "STUDENT",
           html: `
@@ -204,20 +231,22 @@ const Storyline = () =>
                     return (
                         <TimelineItem key={index}>
                             <TimelineCardWrapper>
+                                <TimelineImage>
+                                    <i className={storyTypeToIcon[type]} />
+                                </TimelineImage>
                                 <TimelineCard>
                                     <StyledJobTitle>
-                                        <span>{title}</span>
-                                        <StyledCompany>
-                                            <span>&nbsp;@&nbsp;</span>
-                                            <a href={url} target="_blank" rel="nofollow noopener noreferrer">
-                                                {company}
-                                            </a>
-                                        </StyledCompany>
+                                        {title}
                                     </StyledJobTitle>
+                                    <StyledCompany>
+                                        <span>&nbsp;@&nbsp;</span>
+                                        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+                                            {company}
+                                        </a>
+                                    </StyledCompany>
                                     <TimeSpan>{timeSpan}</TimeSpan>
                                     <Description dangerouslySetInnerHTML={ {__html: html}}/>
                                 </TimelineCard>
-                                <TimelineImage className={storyTypeToIcon[type]} />
                             </TimelineCardWrapper>
                         </TimelineItem>
                     );
