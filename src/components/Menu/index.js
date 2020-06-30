@@ -29,17 +29,15 @@ const Sidebar = styled.aside`
 const NavLinks = styled.nav`
   width: 100%;
   height: 100%;
+  display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
 const NavListItem = styled.div`
-  margin: 40px 0;
   position: relative;
-  justify-content: center;
-  display: block;
 `;
 
 const NavLink = styled.a`
