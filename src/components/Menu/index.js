@@ -11,19 +11,29 @@ const StyledContainer = styled.div`
   z-index: 10;
   outline: 0;
   visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
-  display: flex;
+`;
+
+const MenuWrapper = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    height: 100%;
 `;
 
 const Sidebar = styled.aside`
   flex-direction: column;
+  display: flex;
   background-color: #010101;
-  padding: 50px;
-  width: 50%;
   height: 100%;
+  width: 100%;
   position: relative;
-  right: 0;
-  margin-left: auto;
-  box-shadow: -10px 0px 30px -15px grey;
+`;
+
+const Divider = styled.div`
+    display: flex;
+    height: 100%;
+    width: 5px;
+    background-color: #fff;
 `;
 
 const NavLinks = styled.nav`
@@ -50,35 +60,41 @@ const Menu = ( { menuOpen } ) => {
             menuOpen={menuOpen}
             aria-hidden={!menuOpen}
             tabIndex={menuOpen ? 1 : -1}>
-            <Sidebar>
-                <NavLinks>
-                    <NavListItem>
-                        <NavLink>
-                            About me
-                        </NavLink>
-                    </NavListItem>
-                    <NavListItem>
-                        <NavLink>
-                            Work
-                        </NavLink>
-                    </NavListItem>
-                    <NavListItem>
-                        <NavLink>
-                            Projects
-                        </NavLink>
-                    </NavListItem>
-                    <NavListItem>
-                        <NavLink>
-                            Skills
-                        </NavLink>
-                    </NavListItem>
-                    <NavListItem>
-                        <NavLink>
-                        Education
-                        </NavLink>
-                    </NavListItem>
-                </NavLinks>
-            </Sidebar>
+            <MenuWrapper>
+                <Sidebar>
+                    Some things...
+                </Sidebar>
+                <Divider />
+                <Sidebar>
+                    <NavLinks>
+                        <NavListItem>
+                            <NavLink>
+                                About me
+                            </NavLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavLink>
+                                Work
+                            </NavLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavLink>
+                                Projects
+                            </NavLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavLink>
+                                Skills
+                            </NavLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavLink>
+                            Education
+                            </NavLink>
+                        </NavListItem>
+                    </NavLinks>
+                </Sidebar>
+            </MenuWrapper>
         </StyledContainer>
     );
 }
