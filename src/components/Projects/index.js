@@ -195,4 +195,4 @@ const Projects = () =>
    </StyledMoreButton> */}
 </StyledContainer>
 
-export default withFrame(Projects);
+export default withFrame(Projects, 'projects');

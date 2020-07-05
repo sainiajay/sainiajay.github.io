@@ -10,4 +10,4 @@ const Hello = () => {
     );
 }
 
-export default withFrame(Hello);
+export default withFrame(Hello, 'hello');

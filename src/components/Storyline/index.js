@@ -187,9 +187,24 @@ const data = [
     },
     {
         node: {
-            company: 'TCS',
+            company: 'Tata Consultacy Services',
             title: 'Assistant Engineer',
             timeSpan: 'August, 2017 - May, 2019',
+            type: "PROFESSIONAL",
+            html: `
+              <ul>
+                <li>Developed and shipped highly interactive web applications for Apple Music using Ember.js</li>
+                <li>Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs</li>
+                <li>Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browsers</li>
+              </ul>
+            `
+        }
+    },
+    {
+        node: {
+            company: 'Nayi Disha Studios',
+            title: 'Image Processing Intern',
+            timeSpan: 'December, 2016 - January, 2017',
             type: "PROFESSIONAL",
             html: `
               <ul>
@@ -255,4 +270,4 @@ const Storyline = () =>
         </Timeline>
     </StyledContainer>
 
-export default withFrame(Storyline);
+export default withFrame(Storyline, 'storyline');

@@ -11,19 +11,7 @@ import Education from './components/Education';
 import Header from './components/Header';
 import Networking from './components/Networking';
 import StoryLine from './components/Storyline';
-
-const Pointer = styled.div`
-    position: fixed;
-    top: ${props => props.Y}px;
-    left: ${props => props.X}px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #fff;
-    transition-property: left, top;
-    transition-duration: 100ms;
-    transition-timing-function: linear;
-`;
+import AboutMe from './components/AboutMe';
 
 const sizes = {
   giant: 1440,
@@ -75,8 +63,8 @@ const App = () => {
       <div className="App" onMouseMove={event => onMouseMove(event)}>
         <Header />
         <Hello />
+        <AboutMe />
         <Projects />
-        <Skills />
         <StoryLine />
         <Networking />
       </div>

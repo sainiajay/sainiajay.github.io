@@ -11,10 +11,11 @@ const Div = styled.div`
     & > * {
         align-self: center;
     }
+    border: 1px solid yellow;
 `;
 
-const withFrame = (Element) => () =>
-    <Div>
+const withFrame = (Element, frameId) => () =>
+    <Div id={frameId} >
         <Element />
     </Div>
 

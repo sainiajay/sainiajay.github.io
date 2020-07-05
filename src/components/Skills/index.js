@@ -18,7 +18,7 @@ const SkillItem = (props) =>
         <div className="Skill-Name">{props.name}</div>
     </div>
 
-const Skills = () => 
+export const Skills = () => 
     <div className="Skill-List">
         <SkillItem name="Java">
             <JavaLogo className="Skill-Logo"/>
@@ -40,4 +40,4 @@ const Skills = () =>
         </SkillItem>
     </div>
 
-export default withFrame(Skills);
+export default withFrame(Skills, 'skills');
