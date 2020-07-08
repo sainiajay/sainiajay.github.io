@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import withFrame from '../../commons/Frame/Frame';
+import { BackgroundTextLayer } from '../Hello';
 
 const StyledContainer = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
    width: 100%;
+   z-index: 1;
 `;
 
 const StyledTitle = styled.h4`
@@ -42,7 +43,7 @@ const StyledProjectInner = styled.div`
   position: relative;
   padding: 2rem 1.75rem;
   height: 100%;
-  background-color: ${(props) => props.theme.colors.grey};
+  background-color: ${props => props.theme.color.bg.secondary};
 `;
 
 const StyledProject = styled.div`
@@ -74,7 +75,7 @@ const StyledIconLink = styled.a`
   position: relative;
   padding: 10px;
   font-weight: bold;
-  color: #fff;
+  color: ${props => props.theme.color.text.primary};
 `;
 
 const StyledProjectName = styled.h5`
@@ -99,6 +100,8 @@ const StyledTechList = styled.ul`
   li {
     font-size: 12px;
     line-height: 1.75;
+    font-weight: 300;
+    color: ${props => props.theme.color.text.secondary};
     margin-right: 15px;
     &:last-of-type {
       margin-right: 0;
@@ -111,6 +114,11 @@ const Footer = styled.footer`
    margin-top: auto;
 `;
 
+const BackgroundLayer = () => 
+   <BackgroundTextLayer>
+      <div>Proj</div>
+      <div>ects</div>
+   </BackgroundTextLayer>
 
 const projects = [
    {
@@ -189,10 +197,6 @@ const Projects = () =>
          })
       }
    </StyledGrid>
-
-   {/* <StyledMoreButton onClick={() => setShowMore(!showMore)}>
-      Show {showMore ? 'Less' : 'More'}
-   </StyledMoreButton> */}
 </StyledContainer>
 
-export default withFrame(Projects, 'projects');
+export default withFrame(Projects, 'projects', BackgroundLayer);

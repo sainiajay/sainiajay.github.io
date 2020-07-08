@@ -23,7 +23,7 @@ const MenuWrapper = styled.div`
 const Sidebar = styled.aside`
   flex-direction: column;
   display: flex;
-  background-color: #010101;
+  background-color: ${props => props.theme.color.bg.primary};
   height: 100%;
   width: 100%;
   position: relative;
@@ -33,7 +33,7 @@ const Divider = styled.div`
     display: flex;
     height: 100%;
     width: 5px;
-    background-color: #fff;
+    background-color: ${props => props.theme.color.fg.primary};
 `;
 
 const NavLinks = styled.nav`

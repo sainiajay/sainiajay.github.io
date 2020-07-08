@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Menu from '../../components/Menu';
+import logo from './../../assets/img/logo.png';
 
 const StyledContainer = styled.header`
   position: fixed;
@@ -9,13 +10,13 @@ const StyledContainer = styled.header`
   right: 0;
   left: 0;
   padding: 0px 50px;
-  background-color: transparent;
+  background-color: ${props => props.theme.color.bg.secondary};
   transition: ${({theme}) => theme.transition};
   z-index: 11;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
-  box-shadow: ${({scrollDirection, theme}) => scrollDirection === 'up' ? `0 10px 30px -10px ${theme.colors.shadowNavy}` : 'none'};
+  box-shadow: ${({scrollDirection, theme}) => scrollDirection === 'up' ? `0 10px 30px -10px ${theme.color.shadowNavy}` : 'none'};
   transform: translateY(
     ${({scrollDirection, theme}) => (scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
   );
@@ -28,39 +29,41 @@ const StyledNav = styled.nav`
   counter-reset: item 0;
   z-index: 12;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 `;
 
-const StyledLogo = styled.div`
-  a {
+const StyledLogoContainer = styled.div`
+  max-width: ${props => props.theme.logo.width};
+  max-height: ${props => props.theme.logo.width};
+  position: relative;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  img {
     display: block;
-    color: ${props => props.theme.colors.green};
-    width: 42px;
-    height: 42px;
-    &:hover,
-    &:focus {
-      svg {
-        fill: ${props => props.theme.colors.transGreen};
-      }
-    }
-    svg {
-      fill: none;
-      transition: ${props => props.theme.transition};
-      user-select: none;
-    }
+    width: 100%;
+    height: 100%;
   }
+`;
+
+const ActiveMenuContainer = styled.div`
+  display: flex;
+  font-weight: 900;
+  letter-spacing: 1em;
+  margin: auto;
 `;
 
 const StyledHamburger = styled.div`
   overflow: visible;
   margin: 0 -12px 0 0;
   padding: 15px;
+  padding-right: 20px;
   cursor: pointer;
   transition-timing-function: linear;
   transition-duration: 0.15s;
   transition-property: opacity, filter;
   text-transform: none;
-  color: inherit;
+  color: ${props => props.theme.color.text.primary};
   border: 0;
   background-color: transparent;
   display: flex;
@@ -75,7 +78,7 @@ const StyledHamburgerBox = styled.div`
 `;
 
 const StyledHamburgerInner = styled.div`
-  background-color: ${props => props.theme.colors.green};
+  background-color: ${props => props.theme.color.text.primary};
   position: absolute;
   width: ${props => props.theme.hamburgerWidth}px;
   height: 2px;
@@ -94,7 +97,7 @@ const StyledHamburgerInner = styled.div`
   &:after {
     content: '';
     display: block;
-    background-color: ${({ theme }) => theme.colors.green};
+    background-color: ${({ theme }) => theme.color.text.primary};
     position: absolute;
     left: auto;
     right: 0;
@@ -126,6 +129,12 @@ const Header = () => {
   return (
   <StyledContainer>
     <StyledNav>
+      <StyledLogoContainer>
+        <img src={logo} alt="Ajay Saini" />
+      </StyledLogoContainer>
+      <ActiveMenuContainer>
+        AJAY SAINI
+      </ActiveMenuContainer>
       <StyledHamburger onClick={() => updateMenu(!menuOpen)}>
         <StyledHamburgerBox>
           <StyledHamburgerInner menuOpen={menuOpen} />

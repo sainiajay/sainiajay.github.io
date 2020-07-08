@@ -16,24 +16,6 @@ const Timeline = styled.ol`
     margin-top: 20px;
     padding: 2em 0;
     list-style-type: none;
-    &:before {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        content: ' ';
-        display: block;
-        width: 6px;
-        height: 100%;
-        margin-left: -3px;
-        background: rgb(80,80,80);
-        background: -moz-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
-        background: -webkit-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-        background: -o-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-        background: -ms-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-        background: linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-        z-index: 5;
-    }
 `;
 
 const TimelineCardWrapper = styled.div`
@@ -41,38 +23,43 @@ const TimelineCardWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    z-index: 100;
     justify-content: center;
+    z-index: 100;
 `;
 
 const TimelineImage = styled.div`
     height: 35px;
     min-width: 35px;
     display: flex;
-    background: #000;
     border-radius: 50%;
-    border: 2px solid #fff;
-    z-index: 100;
-    color: #fff;
+    border: 2px solid ${props => props.theme.color.text.primary};
+    color: ${props => props.theme.color.fg.primary};
+    background: ${props => props.theme.color.bg.primary};
     font-size: 20px;
     padding: 5px;
     justify-content: center;
     margin: 10px auto;
+    z-index: 2;
 `;
 
-const TimeSpan = styled.div``;
+const TimeSpan = styled.div`
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 5px 0;
+    font-weight: 300;
+    color: ${props => props.theme.color.text.secondary};
+`;
 
 const TimelineCard = styled.div`
-    color: #fff;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
-    background: #121212;
-    padding: 10px;
+    padding: 30px;
     border-radius: 5px;
-    
     font-weight: 600;
     text-align: left;
+    color: ${props => props.theme.color.text.primary};
+    background: ${props => props.theme.color.bg.secondary};
 
     &:after {
         content: "";
@@ -95,7 +82,7 @@ const StyledCompany = styled.div``;
 const Description = styled.div`
     text-align: justify;
     font-size: 12px;
-    color: #e9e9e9;
+    color: ${props => props.theme.color.text.primary};
     font-weight: lighter;
 `;
 
