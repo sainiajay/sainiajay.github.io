@@ -11,17 +11,52 @@ const Div = styled.div`
         align-self: center;
     }
     border: 1px solid yellow;
+    padding: 50px;
 `;
 
-const withFrame = (Element, frameId, BackgroundLayer) => () => {
+export const BackgroundTextLayer = styled.div`
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: ${props => props.theme.color.bg.secondary};
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 400px;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    transform: skewY(-10deg);
+    div {
+        display: inline-flex;
+        text-shadow: 1px 1px 1px rgba(240, 240, 240, 0.5);
+    }
+}
+`;
+
+const withFrame = (Element, frameId, backgroundText) => () => {
+    const BackgroundLayer = () => {
+        const text = backgroundText || "";
+        const textSplits = text.split('');
+        return (
+            <BackgroundTextLayer>
+                {
+                    textSplits.map(letter => (
+                        <div>{letter}</div>
+                    ))
+                }
+            </BackgroundTextLayer>
+        )
+    }
     return (
         <Div id={frameId} >
             <Element />
-            {
-                BackgroundLayer && (
-                    <BackgroundLayer />
-                )
-            }
+            <BackgroundLayer />
         </Div>
     );
 }

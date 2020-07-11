@@ -55,7 +55,7 @@ const Hello = () => {
                 who loves to build softwares
             </Line>
             <Line>
-                - based in crowdy Bangalore.
+                &mdash; based in crowdy Bangalore.
             </Line>
             <Line>
                 <span role="img" aria-label="Hello!">✌️</span>
@@ -64,4 +64,4 @@ const Hello = () => {
     );
 }
 
-export default withFrame(Hello, 'hello', Background);
+export default withFrame(Hello, 'hello', 'Hello');
