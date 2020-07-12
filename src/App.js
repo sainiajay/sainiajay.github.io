@@ -85,9 +85,9 @@ const App = () => {
       <StyledContainer>
         <Header />
         <Hello />
-        <AboutMe />
         <Projects />
-        <StoryLine />
+        <AboutMe />
+        <Work />
         <Networking />
       </StyledContainer>
     </ThemeProvider>

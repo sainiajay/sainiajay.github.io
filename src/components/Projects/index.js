@@ -128,8 +128,7 @@ const StyledContent = styled.div`
   grid-column: 1 / 7;
   grid-row: 1 / -1;
   padding: 40px 40px 30px;
-z-index: 5;
-
+  z-index: 5;
 `;
 const StyledLabel = styled.h4`
   font-size: 12px;

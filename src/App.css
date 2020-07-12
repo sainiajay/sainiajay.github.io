@@ -10,7 +10,7 @@ a:focus {
   white-space: nowrap;
 }
 
-a:hover::after {
+/* a:hover::after {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -18,4 +18,4 @@ a:hover::after {
   content: "";
   display: inline-block;
   border: 1px solid #ffc300
-}
+} */
