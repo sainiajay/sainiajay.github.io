@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import styled from 'styled-components';
 import withFrame from '../../commons/Frame/Frame';
-import tcsLogo from '../../assets/img/tcs_edit2.png';
-import deloitteLogo from '../../assets/img/deloitte3.jpg';
-import nayiDishaLogo from '../../assets/img/nd_edit1.png';
+import tcsLogo from '../../assets/img/tcs.png';
+import deloitteLogo from '../../assets/img/deloitte.jpg';
+import nayiDishaLogo from '../../assets/img/nayi_disha.png';
 
 const transitionTime = '0.1s';
 
 const StyledContainer = styled.div`
   position: relative;
+  width: 100%;
   z-index: 2;
 `;
 
@@ -166,6 +168,7 @@ const JobsGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
   position: relative;
+  margin-top: 50px;
 `;
 
 const JobTileBackground = styled.div`
@@ -356,10 +359,17 @@ export const Work = () => {
 
     return (
         <StyledContainer>
-            <h2>Where I&apos;ve Worked</h2>
-            <SubHeading>
-              I’ve been lucky enough to work with amazing consulting companies for over 3 years and gain insight and knowledge and hone my skills.
-            </SubHeading>
+            <SectionHeader>
+                <Eyebrow>
+                  Work Experience
+                </Eyebrow>
+                <Heading>
+                  Where I&apos;ve Worked
+                </Heading>
+                <p>
+                  I’ve been lucky enough to work with amazing consulting companies for over 3 years and gain insight and knowledge and hone my skills.
+                </p>
+            </SectionHeader>
             <JobsGrid>
               {
                 data && data.map(({ node }, i) => {

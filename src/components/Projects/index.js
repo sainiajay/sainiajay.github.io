@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import styled from 'styled-components';
 import withFrame from '../../commons/Frame/Frame';
 import blackbox from "../../assets/img/blackbox.png";
@@ -10,7 +11,7 @@ const StyledContainerOLD = styled.div`
    flex-direction: column;
    align-items: center;
    width: 100%;
-   z-index: 1;
+   z-index: 2;
 `;
 
 const StyledTitle = styled.h4`
@@ -152,7 +153,7 @@ const StyledDescription = styled.div`
   color: ${props => props.theme.color.text.primary};
   font-size: 14px;
   border-radius: 4px;
-  box-shadow: 0 10px 10px -15px #050505;
+  box-shadow: 0 5px 25px -20px #050505;
 `;
 
 const StyledTechList = styled.ul`
@@ -268,8 +269,16 @@ const Featured = ({ data }) => {
 //   }, []);
 
   return (
-    <StyledContainer id="projects">
-      <h2>Some Things I&apos;ve Built</h2>
+    <StyledContainer>
+      <SectionHeader>
+        <Eyebrow>
+            Featured Projects
+        </Eyebrow>
+        <Heading>
+            What I've built
+        </Heading>
+        <p>I build my personal projects with completely with passion and aim precisely to learn something new.</p>
+    </SectionHeader>
 
       <div>
         {data &&
@@ -308,7 +317,7 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="GitHub Link">
-                        {/* <FormattedIcon name="GitHub" /> */}
+                        <i className="lni lni-github-original"/>
                       </a>
                     )}
                     {url && (
@@ -317,7 +326,7 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="External Link">
-                        {/* <FormattedIcon name="External" /> */}
+                        <i className="lni lni-link"/>
                       </a>
                     )}
                   </StyledLinkWrapper>

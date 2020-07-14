@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Div = styled.div`
+const Div = styled.section`
     position: relative;
     display: flex;
     min-height: 100vh;
@@ -39,7 +39,7 @@ export const BackgroundTextLayer = styled.div`
 }
 `;
 
-const withFrame = (Element, frameId, backgroundText) => () => {
+const withFrame = (Element, sectionId, backgroundText) => () => {
     const BackgroundLayer = () => {
         const text = backgroundText || "";
         const textSplits = text.split('');
@@ -54,7 +54,7 @@ const withFrame = (Element, frameId, backgroundText) => () => {
         )
     }
     return (
-        <Div id={frameId} >
+        <Div id={sectionId} >
             <Element />
             <BackgroundLayer />
         </Div>

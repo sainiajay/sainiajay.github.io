@@ -52,6 +52,7 @@ const App = () => {
     },
 
     color: {
+      silver: '#878a8f',
       bg: {
         primary: '#f5f5f5',
         secondary: '#ffffff',
