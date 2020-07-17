@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
+import { transitionTime } from "../../commons/Constants";
+
 import styled from 'styled-components';
 import withFrame from '../../commons/Frame/Frame';
 import tcsLogo from '../../assets/img/tcs.png';
-import deloitteLogo from '../../assets/img/deloitte.jpg';
+import deloitteLogo from '../../assets/img/deloitte.svg';
 import nayiDishaLogo from '../../assets/img/nayi_disha.png';
-
-const transitionTime = '0.1s';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -192,7 +192,7 @@ const JobTileBackground = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(15,20,30,.9);
+    backdrop-filter: blur(5px);
   }
 `;
 
