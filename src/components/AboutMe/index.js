@@ -3,7 +3,7 @@ import withFrame from "../../commons/Frame/Frame";
 import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import { Skills } from "../Skills";
 import styled from "styled-components";
-import myImage from './../../assets/img/me.jpg';
+import myImage from './../../assets/img/me.png';
 
 const StyledContainer = styled.div`
     z-index: 2;
@@ -33,6 +33,10 @@ const Image = styled.div`
     margin: 20px;
     img {
         border-radius: 2px;
+        filter: grayscale(50);
+        &:hover {
+            filter: none;
+        }
     }
 `;
 
@@ -44,7 +48,7 @@ const AboutMe = () => {
                     About Me
                 </Eyebrow>
                 <Heading>
-                    Who am I ?
+                    Who I am
                 </Heading>
             </SectionHeader>
             <StyledContent>
