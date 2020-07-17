@@ -21,6 +21,7 @@ const StyledContainer = styled.header`
     ${({scrollDirection, theme}) => (scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
   );
   display: flex;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28)
 `;
 
 const StyledNav = styled.nav`
