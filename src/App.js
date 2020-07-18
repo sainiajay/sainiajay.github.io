@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import styled from 'styled-components'
-import { ThemeProvider, css } from 'styled-components'
+import React, { useRef, useEffect, useState, createRef } from 'react';
+import styled from 'styled-components';
+import { ThemeProvider, css } from 'styled-components';
 import './App.css';
 
+import withScrollbar from './commons/Scrollbar';
 import Hello from './components/Hello';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -12,6 +13,7 @@ import Header from './components/Header';
 import Networking from './components/Networking';
 import StoryLine from './components/Storyline';
 import AboutMe from './components/AboutMe';
+
 
 const sizes = {
   giant: 1440,
@@ -34,17 +36,39 @@ const media = Object.keys(sizes).reduce((accumulator, label) => {
   return accumulator;
 }, {});
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
   font-family: ${props => props.theme.font.primary}, sans-serif;
   color: ${props => props.theme.color.text.primary};
   background-color: ${props => props.theme.color.bg.primary};
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0 60px;
 `;
 
+const sectionsList = [{
+  Element: Hello,
+  id: "hello"
+}, 
+{
+  Element: Projects,
+  id: "projects"
+},
+{
+  Element: AboutMe,
+  id: "about-me"
+},
+{
+  Element: Work,
+  id: "work"
+},
+{
+  Element: Skills,
+  id: "skills"
+}
+];
+
 const App = () => {
+
   const theme = {
     font: {
       primary: 'Montserrat',
@@ -80,15 +104,16 @@ const App = () => {
     tabWidth: 120,
     media
   };
+  const sectionsRef = useRef([]);
 
   return (
     <ThemeProvider theme={theme}>
       <StyledContainer>
-        <Header />
-        <Hello />
-        <Projects />
-        <AboutMe />
-        <Work />
+        <Header sectionsRef={sectionsRef}/>
+        {
+          sectionsList
+            .map(({Element, id}, index) => (<Element key={id} id={id} ref={e => (sectionsRef.current[index] = e)} />))
+        }
         <Networking />
       </StyledContainer>
     </ThemeProvider>

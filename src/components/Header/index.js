@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Menu from '../../components/Menu';
 import logo from './../../assets/img/logo.png';
+import { Section } from './../../commons/Frame/Frame';
 
 const StyledContainer = styled.header`
   position: fixed;
@@ -21,7 +22,7 @@ const StyledContainer = styled.header`
     ${({scrollDirection, theme}) => (scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
   );
   display: flex;
-  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28)
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 `;
 
 const StyledNav = styled.nav`
@@ -124,8 +125,37 @@ const StyledHamburgerInner = styled.div`
 `;
 
 
-const Header = () => {
+const Header = (props) => {
   const [menuOpen, updateMenu] = useState(false);
+  const [currentSection, setCurrentSection] = useState('');
+
+  const intersectionObserverOptions = {
+    threshold: 0.1,
+    root: null
+  };
+  
+  const sectionIndicatorMap = {
+    'hello': '👋🏼',
+    'projects': 'Projects',
+    'about-me': '🤵',
+    'work': '💼',
+    'skills': 'Skills'
+  };
+
+  const intersectionObserverCallback = (entries) => {
+    for(const entry of entries) {
+      console.log(entry.target.id, entry.isIntersecting);
+      if(entry.isIntersecting && sectionIndicatorMap[entry.target.id]) {
+        setCurrentSection(sectionIndicatorMap[entry.target.id]);
+      }
+    }
+  };
+  
+  const observer = new IntersectionObserver(intersectionObserverCallback, intersectionObserverOptions);
+
+  useEffect(() => {
+    props.sectionsRef.current.forEach(ref => observer.observe(ref));
+  }, []);
 
   return (
   <StyledContainer>
@@ -137,9 +167,12 @@ const Header = () => {
         AJAY SAINI
       </ActiveMenuContainer>
       <StyledHamburger onClick={() => updateMenu(!menuOpen)}>
-        <StyledHamburgerBox>
+        {/* <StyledHamburgerBox>
           <StyledHamburgerInner menuOpen={menuOpen} />
-        </StyledHamburgerBox>
+        </StyledHamburgerBox> */}
+        <span>
+          {currentSection}
+        </span>
       </StyledHamburger>
     </StyledNav>
     <Menu menuOpen={menuOpen}/>
