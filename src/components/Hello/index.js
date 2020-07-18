@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Line = styled.div`
-    font-size: 32px;
+    font-size: 45px;
     line-height: 2em;
     font-weight: 900;
     text-align: center;
