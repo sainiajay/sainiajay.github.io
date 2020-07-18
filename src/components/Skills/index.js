@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import withFrame from '../../commons/Frame/Frame';
 import javaLogo from './../../assets/img/java.svg';
 import graphQlLogo from './../../assets/img/graphql.svg';
@@ -6,8 +7,18 @@ import nodeJsLogo  from './../../assets/img/nodejs.svg';
 import reactJsLogo from './../../assets/img/react.svg';
 import mongoDbLogo from './../../assets/img/mongodb.svg';
 import dockerLogo from './../../assets/img/docker.svg';
+import javascriptLogo from './../../assets/img/javascript.png';
+import goLogo from './../../assets/img/golang.png';
+import springLogo from './../../assets/img/spring.svg';
+import gradleLogo from './../../assets/img/gradle.png';
+import gitLogo from './../../assets/img/git.png';
+import gatsbyLogo from './../../assets/img/gatsby.svg';
 
 import styled from 'styled-components';
+
+const StyledContainer = styled.div`
+    z-index: 2;
+`;
 
 const SkillWrapper = styled.div`
     overflow: hidden;
@@ -16,7 +27,7 @@ const SkillWrapper = styled.div`
     margin: 5px;
     background-color: ${props => props.theme.color.bg.secondary};
     padding: 5px;
-
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 `;
 
 const SkillContainer = styled.div`
@@ -49,6 +60,19 @@ const SkillList = styled.div`
     justify-content: center;
 `;
 
+const SkillCategoryGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+`;
+
+const SkillCategory = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 20px 0;
+`;
+
 const SkillItem = (props) => 
     <SkillWrapper>
         <SkillContainer>
@@ -58,13 +82,45 @@ const SkillItem = (props) =>
     </SkillWrapper>
 
 export const Skills = () => 
-    <SkillList>
-        <SkillItem name="Java" src={javaLogo} />
-        <SkillItem name="GraphQL" src={graphQlLogo}/>
-        <SkillItem name="NodeJS" src={nodeJsLogo}/>
-        <SkillItem name="ReactJS" src={reactJsLogo}/>
-        <SkillItem name="MongoDB" src={mongoDbLogo}/>
-        <SkillItem name="Docker" src={dockerLogo}/>
-    </SkillList>
+    <StyledContainer>
+        <SectionHeader>
+            <Eyebrow>
+                Skillset
+            </Eyebrow>
+            <Heading>
+                How I build things
+            </Heading>
+            <p>
+                I’ve been lucky enough to work with amazing consulting companies for over 3 years and gain insight and knowledge and hone my skills.
+            </p>
+        </SectionHeader>
+        <SkillCategoryGrid>
+            <SkillList>
+                <SkillCategory>Tech Stack</SkillCategory>
+                <SkillItem name="NodeJS" src={nodeJsLogo}/>
+                <SkillItem name="MongoDB" src={mongoDbLogo}/>
+                <SkillItem name="Docker" src={dockerLogo}/>
+            </SkillList>
+            <SkillList>
+                <SkillCategory>Frameworks</SkillCategory>
+                <SkillItem name="Spring" src={springLogo} />
+                <SkillItem name="GraphQL" src={graphQlLogo}/>
+                <SkillItem name="NodeJS" src={nodeJsLogo}/>
+                <SkillItem name="ReactJS" src={reactJsLogo}/>
+            </SkillList>
+            <SkillList>
+                <SkillCategory>Languages</SkillCategory>
+                <SkillItem name="Java" src={javaLogo} />
+                <SkillItem name="Javascript" src={javascriptLogo} />
+                <SkillItem name="Go" src={goLogo} />
+            </SkillList>
+            <SkillList>
+                <SkillCategory>Tools</SkillCategory>
+                <SkillItem name="Gradle" src={gradleLogo} />
+                <SkillItem name="Git" src={gitLogo} />
+                <SkillItem name="Gatsby" src={gatsbyLogo} />
+            </SkillList>
+        </SkillCategoryGrid>
+    </StyledContainer>
 
 export default withFrame(Skills, 'skills');
