@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
-const Div = styled.section`
+export const Section = styled.section`
     position: relative;
     display: flex;
     min-height: 100vh;
@@ -10,16 +10,15 @@ const Div = styled.section`
     & > * {
         align-self: center;
     }
-    border: 1px solid yellow;
-    padding: 50px;
+    padding: 50px 100px;
 `;
 
 export const BackgroundTextLayer = styled.div`
     z-index: 0;
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-flow: row wrap;
-    top: 0;
+    top: calc(100vh * index);
     bottom: 0;
     right: 0;
     left: 0;
@@ -31,7 +30,7 @@ export const BackgroundTextLayer = styled.div`
     font-weight: bold;
     text-transform: uppercase;
     overflow: hidden;
-    transform: skewY(-10deg);
+    /* transform: skewY(-10deg); */
     div {
         display: inline-flex;
         text-shadow: 1px 1px 1px rgba(240, 240, 240, 0.5);
@@ -39,26 +38,13 @@ export const BackgroundTextLayer = styled.div`
 }
 `;
 
-const withFrame = (Element, sectionId, backgroundText) => () => {
-    const BackgroundLayer = () => {
-        const text = backgroundText || "";
-        const textSplits = text.split('');
-        return (
-            <BackgroundTextLayer>
-                {
-                    textSplits.map(letter => (
-                        <div>{letter}</div>
-                    ))
-                }
-            </BackgroundTextLayer>
-        )
-    }
+const withFrame = (Element) => forwardRef((props, ref) => {
     return (
-        <Div id={sectionId} >
+        <Section id={props.id} ref={ref}>
             <Element />
-            <BackgroundLayer />
-        </Div>
+        </Section>
     );
-}
+
+})
 
 export default withFrame;
