@@ -140,19 +140,28 @@ const StyledTabContent = styled.div`
 
 const StyledJobTitle = styled.h3` 
   letter-spacing: 0.5rem;
+  margin-bottom: 1em;
 `;
 
 const StyledCompany = styled.div`
   color: '#000';
 `;
 
-const StyledJobDetails = styled.h5`
+const StyledJobDetails = styled.div`
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 0.05em;
   margin-bottom: 30px;
   svg {
     width: 15px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    li {
+      margin: 5px 0;
+    }
   }
 `;
 
@@ -161,6 +170,11 @@ const SubHeading = styled.h4`
   font-weight: normal;
   letter-spacing: 0.05em;
   color: ${props => props.theme.color.text.primary};
+`;
+
+const Content = styled.div`
+  overflow-y: auto;
+  padding: 10px;
 `;
 
 const JobsGrid = styled.div`
@@ -199,8 +213,7 @@ const JobTileBackground = styled.div`
 const TileHeader = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  transform: translateY(5px);
-  transition: all ${transitionTime} ease-in;
+  padding: 5px;
 `;
 
 const TileFooter = styled.div`
@@ -213,7 +226,7 @@ const TileFooter = styled.div`
 
 const JobDuration = styled.div`
   font-family: monospace;
-  font-size: 12px;
+  font-size: 1em;
   opacity: 0.75;
   display: block;
 `;
@@ -224,94 +237,40 @@ const Company = styled.a`
   &:before {
     content: '@ '
   }
-  &:hover:after {
-    content: '↗';
-    font-size: 15px;
-    margin: 0 5px;
-    padding: 0 5px;
-    border: 1px solid #fff;
-  }
-`;
-
-const JobDetailLink = styled.div`
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-  &:before {
-    content: '  ';
-  }
 `;
 
 const JobTile = styled.div`
-  color: ${props => props.theme.color.bg.secondary};
+  color: ${props => props.theme.color.text.primary};
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  height: 400px;
   position: relative;
   overflow: hidden;
   padding: 30px;
-  &:hover ${JobTileBackground} {
-    transform: scale(1.1);
+`;
+
+const CompanyLogo = styled.a`
+  display: flex;
+  background: #000;
+  height: 200px;
+  img {
+    width: 100%;
+    margin: auto;
+    transition: all ${transitionTime} ease-in;
   }
-  &:hover ${JobTileBackground}:before {
-    display: block;
-  }
-  &:hover ${TileHeader} {
-    transform: translateY(0);
-  }
-  &:hover ${TileFooter} {
-    opacity: 0.9;
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
   }
 `;
 
-// &:hover ${TileFooter} {
-//   visibility: visible;
-//   transform: scale(1.1);
-// }
 export const Work = () => {
-    const [activeTabId, setActiveTabId] = useState(0);
-    const [tabFocus, setTabFocus] = useState(null);
-    const tabs = useRef([]);
-
-    const revealContainer = useRef(null);
-    // useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
-
-    const focusTab = () => {
-        if (tabs.current[tabFocus]) {
-            tabs.current[tabFocus].focus();
-        } else {
-            // If we're at the end, go to the start
-            if (tabFocus >= tabs.current.length) {
-                setTabFocus(0);
-            }
-            // If we're at the start, move to the end
-            if (tabFocus < 0) {
-                setTabFocus(tabs.current.length - 1);
-            }
-        }
-    };
-
-    // Only re-run the effect if tabFocus changes
-    useEffect(focusTab, [tabFocus]);
-
-    const onKeyPressed = e => {
-        if (e.keyCode === 38 || e.keyCode === 40) {
-            e.preventDefault();
-            if (e.keyCode === 40) {
-                // Move down
-                setTabFocus(tabFocus + 1);
-            } else if (e.keyCode === 38) {
-                // Move up
-                setTabFocus(tabFocus - 1);
-            }
-        }
-    };
 
     const data = [
         {
             node: {
                 company: 'Deloitte Consulting',
+                url: 'https://www.deloittedigital.com/',
                 title: 'Consultant',
                 range: 'June, 2019 - Today',
                 img: deloitteLogo,
@@ -327,6 +286,7 @@ export const Work = () => {
         {
             node: {
                 company: 'Tata Consultancy Services',
+                url: 'https://www.tcs.com',
                 title: 'Assistant Systems Engineer',
                 range: 'August, 2017 - May, 2019',
                 img: tcsLogo,
@@ -342,6 +302,7 @@ export const Work = () => {
         {
           node: {
               company: 'Nayi Disha Studios',
+              url: 'http://nayidishastudios.com',
               title: 'Image Processing Intern',
               range: 'December, 2016 - January, 2017',
               type: "PROFESSIONAL",
@@ -376,18 +337,16 @@ export const Work = () => {
                   const { title, url, company, range, html, img } = node;
                   return (
                     <JobTile>
-                      <JobTileBackground image={img} />
-                      <TileHeader>
-                        <JobDuration>{range}</JobDuration>
-                        <StyledJobTitle>{title}</StyledJobTitle>
-                      </TileHeader>
-                      <TileFooter>
-                        <Company>{company}</Company>
-                        <JobDetailLink>
-                          View Details
-                        </JobDetailLink>
-                      </TileFooter>
-                      {/* <StyledJobDetails>{html}</StyledJobDetails> */}
+                      <CompanyLogo href={url} target="_blank">
+                        <img src={img} alt={company}/>
+                      </CompanyLogo>
+                      <Content>
+                        <TileHeader>
+                          <StyledJobTitle>{title}</StyledJobTitle>
+                          <JobDuration>{range}</JobDuration>
+                        </TileHeader>
+                        <StyledJobDetails dangerouslySetInnerHTML={{__html: html}} />
+                      </Content>
                     </JobTile>
                   );
                 })
