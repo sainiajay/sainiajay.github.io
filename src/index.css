@@ -21,6 +21,15 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+a,
+a:active,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+}
+
 * {
   box-sizing: border-box;
 }
