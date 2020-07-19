@@ -53,6 +53,7 @@ const ActiveMenuContainer = styled.div`
   font-weight: 900;
   letter-spacing: 1em;
   margin: auto;
+  font-size: 1.5em;
 `;
 
 const StyledHamburger = styled.div`
@@ -167,12 +168,9 @@ const Header = (props) => {
         AJAY SAINI
       </ActiveMenuContainer>
       <StyledHamburger onClick={() => updateMenu(!menuOpen)}>
-        {/* <StyledHamburgerBox>
+        <StyledHamburgerBox>
           <StyledHamburgerInner menuOpen={menuOpen} />
-        </StyledHamburgerBox> */}
-        <span>
-          {currentSection}
-        </span>
+        </StyledHamburgerBox>
       </StyledHamburger>
     </StyledNav>
     <Menu menuOpen={menuOpen}/>
