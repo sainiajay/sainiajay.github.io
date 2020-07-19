@@ -1,5 +1,6 @@
 import React from 'react';
 import withFrame from '../../commons/Frame/Frame';
+import withScrollReveal from '../../commons/ScrollReveal';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -7,12 +8,12 @@ const Wrapper = styled.div`
     z-index: 1;
 `;
 
-const Line = styled.div`
+const Line = withScrollReveal(styled.div`
     font-size: 45px;
     line-height: 2em;
     font-weight: 900;
     text-align: center;
-`;
+`);
 
 export const BackgroundTextLayer = styled.div`
     z-index: 0;
@@ -48,16 +49,16 @@ const Background = () => (
 const Hello = () => {
     return (
         <Wrapper>
-            <Line>
+            <Line sr={{delay: 200}}>
                 I am a Software Engineer
             </Line>
-            <Line>
+            <Line sr={{delay: 300}}>
                 who loves to build softwares
             </Line>
-            <Line>
+            <Line sr={{delay: 400}}>
                 &mdash; based in crowdy Bangalore.
             </Line>
-            <Line>
+            <Line sr={{delay: 500}}>
                 <span role="img" aria-label="Hello!">✌️</span>
             </Line>
         </Wrapper>
