@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import withScrollbarReveal from './ScrollReveal';
 
-export const SectionHeader = styled.header`
+export const SectionHeader = withScrollbarReveal(styled.header`
     font-size: 12px;
     margin: 10px 0;
     p {
         color: ${props => props.theme.color.silver};
+        font-size: 1.5em;
     }
-`;
+`);
 
 export const Eyebrow = styled.h5`
     font-size: 1em;
@@ -20,5 +22,5 @@ export const Eyebrow = styled.h5`
 `;
 
 export const Heading = styled.h2`
-    font-size: 2em;
+    font-size: 2.5em;
 `;
