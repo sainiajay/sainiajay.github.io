@@ -1,17 +1,13 @@
-import React, { useRef, useEffect, useState, createRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { ThemeProvider, css } from 'styled-components';
-import './App.css';
 
-import withScrollbar from './commons/Scrollbar';
 import Hello from './components/Hello';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Work from './components/Work';
-import Education from './components/Education';
 import Header from './components/Header';
 import Networking from './components/Networking';
-import StoryLine from './components/Storyline';
 import AboutMe from './components/AboutMe';
 
 
@@ -39,7 +35,7 @@ const media = Object.keys(sizes).reduce((accumulator, label) => {
 const StyledContainer = styled.main`
   font-family: ${props => props.theme.font.primary}, sans-serif;
   color: ${props => props.theme.color.text.primary};
-  background-color: ${props => props.theme.color.bg.primary};
+  background-color: ${props => props.theme.color.bg.secondary};
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -104,6 +100,7 @@ const App = () => {
     tabWidth: 120,
     media
   };
+  
   const sectionsRef = useRef([]);
 
   return (
