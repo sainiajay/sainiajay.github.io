@@ -6,7 +6,7 @@ export const SectionHeader = withScrollbarReveal(styled.header`
     margin: 10px 0;
     p {
         color: ${props => props.theme.color.silver};
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 `);
 
