@@ -9,6 +9,7 @@ import Work from './components/Work';
 import Header from './components/Header';
 import Networking from './components/Networking';
 import AboutMe from './components/AboutMe';
+import HireMe from './components/HireMe';
 
 
 const sizes = {
@@ -60,6 +61,10 @@ const sectionsList = [{
 {
   Element: Skills,
   id: "skills"
+},
+{
+  Element: HireMe,
+  id: "hire-me"
 }
 ];
 
