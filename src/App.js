@@ -10,7 +10,7 @@ import Header from './components/Header';
 import Networking from './components/Networking';
 import AboutMe from './components/AboutMe';
 import HireMe from './components/HireMe';
-
+import Footer from './components/Footer';
 
 const sizes = {
   giant: 1440,
@@ -116,6 +116,7 @@ const App = () => {
           sectionsList
             .map(({Element, id}, index) => (<Element key={id} id={id} ref={e => (sectionsRef.current[index] = e)} />))
         }
+        <Footer />
         <Networking />
       </StyledContainer>
     </ThemeProvider>
