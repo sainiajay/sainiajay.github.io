@@ -18,11 +18,13 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
     z-index: 2;
+    justify-content: center;
 `;
 
 const SkillWrapper = styled.div`
     overflow: hidden;
     border-radius: 6px;
+    height: max-content;
     transition: transform 100ms ease-out;
     margin: 5px;
     background-color: ${props => props.theme.color.bg.secondary};
@@ -37,6 +39,7 @@ const SkillContainer = styled.div`
         display: block;
         width: 50px;
         height: 50px;
+        margin: auto;
     }
 `;
 
@@ -57,19 +60,22 @@ const SkillName = styled.div`
 const SkillList = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 `;
 
 const SkillCategoryGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: auto;
+    width: fit-content;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
 `;
 
 const SkillCategory = styled.div`
     display: flex;
-    width: 100%;
     justify-content: center;
     text-transform: uppercase;
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     margin: 20px 0;
 `;
 
@@ -96,16 +102,15 @@ export const Skills = () =>
         </SectionHeader>
         <SkillCategoryGrid>
             <SkillList>
-                <SkillCategory>Tech Stack</SkillCategory>
-                <SkillItem name="NodeJS" src={nodeJsLogo}/>
-                <SkillItem name="MongoDB" src={mongoDbLogo}/>
-                <SkillItem name="Docker" src={dockerLogo}/>
+                <SkillCategory>Tools</SkillCategory>
+                <SkillItem name="Gradle" src={gradleLogo} />
+                <SkillItem name="Git" src={gitLogo} />
+                <SkillItem name="Gatsby" src={gatsbyLogo} />
             </SkillList>
             <SkillList>
                 <SkillCategory>Frameworks</SkillCategory>
                 <SkillItem name="Spring" src={springLogo} />
                 <SkillItem name="GraphQL" src={graphQlLogo}/>
-                <SkillItem name="NodeJS" src={nodeJsLogo}/>
                 <SkillItem name="ReactJS" src={reactJsLogo}/>
             </SkillList>
             <SkillList>
@@ -115,10 +120,10 @@ export const Skills = () =>
                 <SkillItem name="Go" src={goLogo} />
             </SkillList>
             <SkillList>
-                <SkillCategory>Tools</SkillCategory>
-                <SkillItem name="Gradle" src={gradleLogo} />
-                <SkillItem name="Git" src={gitLogo} />
-                <SkillItem name="Gatsby" src={gatsbyLogo} />
+                <SkillCategory>Tech Stack</SkillCategory>
+                <SkillItem name="NodeJS" src={nodeJsLogo}/>
+                <SkillItem name="MongoDB" src={mongoDbLogo}/>
+                <SkillItem name="Docker" src={dockerLogo}/>
             </SkillList>
         </SkillCategoryGrid>
     </StyledContainer>
