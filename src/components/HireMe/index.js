@@ -24,14 +24,12 @@ const ContentWrapper = styled.div`
 `;
 
 const Text = styled.div`
-    grid-column: 1;
     p {
         font-size: 1.2em;
     }
 `;
 
 const ActionWrapper = styled.div`
-    grid-column: 2;
     flex-flow: column nowrap;
     justify-content: center;
 `;
@@ -67,7 +65,7 @@ const HireMe = () => {
             <ContentWrapper>
                 <Text>
                     <p>
-                        Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        I am currently looking for a job opportunity and wish to work with product-based company. I am highly interested to be a part of team which has core values 
                     </p>
                 </Text>
                 <ActionWrapper>
