@@ -17,8 +17,8 @@ const StyledContent = styled.div`
   grid-column: 1 / 7;
   grid-row: 1 / -1;
   padding: 40px 40px 30px;
-  z-index: 5;
 `;
+
 const StyledLabel = styled.h4`
   font-size: 12px;
   font-weight: normal;
@@ -27,6 +27,7 @@ const StyledLabel = styled.h4`
   margin-top: 10px;
   padding-top: 0;
 `;
+
 const StyledProjectName = styled.h5`
   font-size: 28px;
   margin: 0 0 20px;
@@ -88,13 +89,14 @@ const StyledFeaturedImg = styled.img`
   border-radius: 4px;
   position: relative;
   mix-blend-mode: multiply;
+  filter: grayscale(100%) contrast(1) brightness(90%);
+  box-shadow: 1px 1px 5px 1px #eee;
 `;
 
 const StyledImgContainer = styled.a`
   grid-column: 6 / -1;
   grid-row: 1 / -1;
   position: relative;
-  z-index: 1;
   border-radius: 5px;
   &:hover,
   &:focus {
@@ -102,7 +104,7 @@ const StyledImgContainer = styled.a`
     &:before,
     ${StyledFeaturedImg} {
       background: transparent;
-      filter: grayscale(100%) contrast(1) brightness(90%);;
+      filter: none;
     }
   }
   &:before {
@@ -114,7 +116,6 @@ const StyledImgContainer = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
     mix-blend-mode: screen;
   }
 `;
@@ -163,7 +164,6 @@ const Featured = ({ data }) => {
         </Heading>
         <p>I build my personal projects with completely with passion and aim precisely to learn something new.</p>
     </SectionHeader>
-
       <div>
         {data &&
           data.map((p, i) => {
