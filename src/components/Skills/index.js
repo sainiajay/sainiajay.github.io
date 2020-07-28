@@ -13,12 +13,14 @@ import springLogo from './../../assets/img/spring.svg';
 import gradleLogo from './../../assets/img/gradle.png';
 import gitLogo from './../../assets/img/git.png';
 import gatsbyLogo from './../../assets/img/gatsby.svg';
-
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const StyledContainer = styled.div`
     z-index: 2;
     justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
 `;
 
 const SkillWrapper = styled.div`
@@ -57,6 +59,43 @@ const SkillName = styled.div`
     transition: color 100ms ease-out;
 `;
 
+const spinRound = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
+const SkillReel = styled.div`
+    position: relative;
+`;
+
+const SkillRowWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    /* &:nth-child(even) {
+        transform: translateX(-25%);
+    } */
+`;
+
+const SkillReelRow = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    animation: ${spinRound} ${props => props.time || 5}s linear infinite;
+`;
+
+const ReelItemGroup = styled.div`
+    display: flex;
+    min-width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+`;
+
 const SkillList = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +126,33 @@ const SkillItem = (props) =>
         <SkillName>{props.name}</SkillName>
     </SkillWrapper>
 
+const ReelItemWrapper = styled.div`
+    display: flex;
+    padding: 2em 4em;
+`;
+
+const WithStroke = styled.span`
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 3.5em;
+    text-shadow: none;
+`;
+
+const WithoutStroke = styled.span`
+    color: #000;
+    font-size: 3.5em;
+`;
+
+const ReelItem = (props) => 
+<ReelItemWrapper>
+    {
+        props.stroke &&
+            (<WithStroke>{props.children}</WithStroke>)
+        ||
+        (<WithoutStroke>{props.children}</WithoutStroke>)
+    }
+</ReelItemWrapper>
+
 export const Skills = () => 
     <StyledContainer>
         <SectionHeader>
@@ -100,7 +166,7 @@ export const Skills = () =>
                 I’ve been lucky enough to work with amazing consulting companies for over 3 years and gain insight and knowledge and hone my skills.
             </p>
         </SectionHeader>
-        <SkillCategoryGrid>
+        {/* <SkillCategoryGrid>
             <SkillList>
                 <SkillCategory>Tools</SkillCategory>
                 <SkillItem name="Gradle" src={gradleLogo} />
@@ -125,7 +191,51 @@ export const Skills = () =>
                 <SkillItem name="MongoDB" src={mongoDbLogo}/>
                 <SkillItem name="Docker" src={dockerLogo}/>
             </SkillList>
-        </SkillCategoryGrid>
+        </SkillCategoryGrid> */}
+        <SkillReel>
+            <SkillRowWrapper>
+                <SkillReelRow time={45}>
+                    <ReelItemGroup>
+                        <ReelItem stroke>Java</ReelItem>
+                        <ReelItem>Python</ReelItem>
+                        <ReelItem stroke>Golang</ReelItem>
+                    </ReelItemGroup>
+                    <ReelItemGroup>
+                        <ReelItem>Java</ReelItem>
+                        <ReelItem stroke>Python</ReelItem>
+                        <ReelItem>Golang</ReelItem>
+                    </ReelItemGroup>
+                </SkillReelRow>    
+            </SkillRowWrapper>
+            <SkillRowWrapper>
+                <SkillReelRow time={50}>
+                    <ReelItemGroup>
+                        <ReelItem stroke>Redis</ReelItem>
+                        <ReelItem>MongoDB</ReelItem>
+                        <ReelItem stroke>MySQL</ReelItem>
+                        <ReelItem>Kafka</ReelItem>
+                    </ReelItemGroup>
+                    <ReelItemGroup>
+                        <ReelItem stroke>Redis</ReelItem>
+                        <ReelItem>MongoDB</ReelItem>
+                        <ReelItem stroke>MySQL</ReelItem>
+                        <ReelItem>Kafka</ReelItem>
+                    </ReelItemGroup>
+                </SkillReelRow>
+            </SkillRowWrapper>
+            <SkillRowWrapper>
+                <SkillReelRow time={40}>
+                    <ReelItemGroup>
+                        <ReelItem stroke>Algorithms</ReelItem>
+                        <ReelItem>Data Structure</ReelItem>
+                    </ReelItemGroup>
+                    <ReelItemGroup>
+                        <ReelItem stroke>Algorithms</ReelItem>
+                        <ReelItem>Data Structure</ReelItem>
+                    </ReelItemGroup>
+                </SkillReelRow>
+            </SkillRowWrapper>
+        </SkillReel>
     </StyledContainer>
 
 export default withFrame(Skills, 'skills');
