@@ -11,7 +11,6 @@ import nayiDishaLogo from '../../assets/img/nayi_disha.png';
 const StyledContainer = styled.div`
   position: relative;
   width: 100%;
-  z-index: 2;
 `;
 
 const StyledTabs = styled.div`
@@ -139,8 +138,9 @@ const StyledTabContent = styled.div`
 // }
 
 const StyledJobTitle = styled.h3` 
-  letter-spacing: 0.5rem;
-  margin-bottom: 1em;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  margin: 0.5em;
 `;
 
 const StyledCompany = styled.div`
@@ -174,13 +174,13 @@ const SubHeading = styled.h4`
 
 const Content = styled.div`
   overflow-y: auto;
-  padding: 10px;
+  padding: 0 30px 30px 30px;
 `;
 
 const JobsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 15px;
+  grid-gap: 30px;
   position: relative;
   margin-top: 50px;
 `;
@@ -213,7 +213,13 @@ const JobTileBackground = styled.div`
 const TileHeader = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 5px 25px -20px #050505;
+  background-color: #fff;
+  margin: 0 30px;
+  z-index: 2;
+  transform: translateY(-50%);
 `;
 
 const TileFooter = styled.div`
@@ -245,7 +251,7 @@ const JobTile = styled.div`
   flex-flow: column nowrap;
   position: relative;
   overflow: hidden;
-  padding: 30px;
+  box-shadow: 0 5px 25px -20px #050505;
 `;
 
 const CompanyLogo = styled.a`
@@ -340,11 +346,11 @@ export const Work = () => {
                       <CompanyLogo href={url} target="_blank">
                         <img src={img} alt={company}/>
                       </CompanyLogo>
-                      <Content>
-                        <TileHeader>
+                      <TileHeader>
                           <StyledJobTitle>{title}</StyledJobTitle>
-                          <JobDuration>{range}</JobDuration>
+                          {/* <JobDuration>{range}</JobDuration> */}
                         </TileHeader>
+                      <Content>
                         <StyledJobDetails dangerouslySetInnerHTML={{__html: html}} />
                       </Content>
                     </JobTile>
