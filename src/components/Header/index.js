@@ -151,10 +151,9 @@ const Header = (props) => {
       }
     }
   };
-  
-  const observer = new IntersectionObserver(intersectionObserverCallback, intersectionObserverOptions);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(intersectionObserverCallback, intersectionObserverOptions);
     props.sectionsRef.current.forEach(ref => observer.observe(ref));
   }, []);
 
