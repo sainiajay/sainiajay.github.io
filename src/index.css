@@ -38,3 +38,7 @@ a:focus {
   background-color: #878a8f;
   color: #fff;
 }
+
+#root {
+  position: relative;
+}
