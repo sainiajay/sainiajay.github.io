@@ -1,6 +1,5 @@
 import React from 'react';
 import withFrame from '../../commons/Frame/Frame';
-import withScrollReveal from '../../commons/ScrollReveal';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -8,12 +7,12 @@ const Wrapper = styled.div`
     z-index: 1;
 `;
 
-const Line = withScrollReveal(styled.div`
+const Line = styled.div`
     font-size: 45px;
     line-height: 2em;
     font-weight: 900;
     text-align: center;
-`);
+`;
 
 export const BackgroundTextLayer = styled.div`
     z-index: 0;
