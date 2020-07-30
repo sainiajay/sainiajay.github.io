@@ -11,8 +11,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "scrollreveal": "^4.0.7",
-    "smooth-scrollbar": "^8.5.2",
     "styled-components": "^5.1.1"
   },
   "scripts": {
@@ -20,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d public"
   },
   "eslintConfig": {
     "extends": "react-app"
