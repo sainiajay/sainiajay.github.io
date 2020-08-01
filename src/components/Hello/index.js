@@ -56,7 +56,7 @@ const Hello = () => {
                 who loves to build softwares
             </Line>
             <Line sr={{delay: 400}}>
-                &mdash; based in Bangalore.
+                &mdash; based in Delhi.
             </Line>
             <Line sr={{delay: 500}}>
                 <span role="img" aria-label="Hello!">✌️</span>
