@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const SectionHeader = styled.header`
+export const SectionHeader = styled.header.attrs({
+    'data-sal': 'slide-up',
+    'data-sal-delay': '100',
+    'data-sal-duration': '500'
+})`
     font-size: 12px;
     margin: 10px 0;
     p {

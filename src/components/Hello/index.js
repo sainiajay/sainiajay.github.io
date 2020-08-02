@@ -48,16 +48,16 @@ const Background = () => (
 const Hello = () => {
     return (
         <Wrapper>
-            <Line sr={{delay: 200}}>
+            <Line data-sal="slide-up" data-sal-delay="200">
                 I am a Software Engineer
             </Line>
-            <Line sr={{delay: 300}}>
+            <Line data-sal="slide-up" data-sal-delay="250">
                 who loves to build softwares
             </Line>
-            <Line sr={{delay: 400}}>
+            <Line data-sal="slide-up" data-sal-delay="300">
                 &mdash; based in Delhi.
             </Line>
-            <Line sr={{delay: 500}}>
+            <Line data-sal="slide-up" data-sal-delay="350">
                 <span role="img" aria-label="Hello!">✌️</span>
             </Line>
         </Wrapper>
