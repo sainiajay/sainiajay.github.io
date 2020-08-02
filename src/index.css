@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Istok+Web&display=swap');
+
 body {
-  margin: 0;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 12px;
+  margin: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, monospace;
 }
 
 button {
   border: none;
+  outline: none;
 }
 
 ul {
   padding: 5px;
+}
+
+p, li {
+  font-family: 'Istok Web';
 }
 
 h1, h2, h3, h4, h5, h6 {

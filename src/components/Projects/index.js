@@ -40,6 +40,7 @@ const StyledDescription = styled.div`
   padding: 25px;
   background-color: ${props => props.theme.color.bg.secondary};
   color: ${props => props.theme.color.text.primary};
+  font-family: ${props => props.theme.font.secondary};
   font-size: 14px;
   border-radius: 4px;
   box-shadow: 0 5px 25px -20px #050505;

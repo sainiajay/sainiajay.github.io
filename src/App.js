@@ -34,7 +34,6 @@ const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {});
 
 const StyledContainer = styled.main`
-  font-family: ${props => props.theme.font.primary}, sans-serif;
   color: ${props => props.theme.color.text.primary};
   background-color: ${props => props.theme.color.bg.secondary};
   display: flex;
@@ -73,7 +72,7 @@ const App = () => {
   const theme = {
     font: {
       primary: 'Montserrat',
-      secondary: 'Raleway',
+      secondary: 'Istok Web',
     },
 
     color: {
