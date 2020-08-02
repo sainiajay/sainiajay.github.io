@@ -2,6 +2,10 @@ import React from 'react';
 import withFrame from '../../commons/Frame/Frame';
 import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
     position: relative;
@@ -25,7 +29,7 @@ const ContentWrapper = styled.div`
 
 const Text = styled.div`
     p {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 `;
 
@@ -43,9 +47,6 @@ const Action = styled.a`
     margin: 10px 0;
     cursor: pointer;
     color: ${props => props.theme.color.text.primary};
-    &:hover {
-        text-decoration: underline;
-    }
     span {
         margin-right: 10px;
     }
@@ -70,13 +71,13 @@ const HireMe = () => {
                 </Text>
                 <ActionWrapper>
                     <Action>
-                        <span class="lni lni-linkedin"></span>Connect on LinkedIn  
+                        <FontAwesomeIcon icon={faLinkedinIn} /> &nbsp; Connect on LinkedIn  
                     </Action>
                     <Action>
-                        <span class="lni lni-envelope"></span>Drop an Email
+                        <FontAwesomeIcon icon={faEnvelope} /> &nbsp; Drop an Email
                     </Action>
                     <Action>
-                        <span class="lni lni-download"></span>Download my Resume 
+                        <FontAwesomeIcon icon={faDownload} /> &nbsp; Download my Resume 
                     </Action>
                 </ActionWrapper>
             </ContentWrapper>

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedinIn, faTwitter, faGithub, faMediumM } from '@fortawesome/free-brands-svg-icons';
 
 const StyledContainer = styled.div`
     position: fixed;
@@ -12,7 +14,6 @@ const Item = styled.a`
   margin: 1em 0.5em;
   display: block;
   font-size: 16px;
-  width: 2em;
   color: ${props => props.theme.color.text.primary};
   line-height: 2em;
   align-self: flex-end;
@@ -20,29 +21,42 @@ const Item = styled.a`
   color: #fff;
   border-radius: 1em;
   position: relative;
-  padding: 0 0.5em;
+  padding: 0 0.4em;
   transition: all 100ms linear;
   overflow-x: hidden;
-  &:before {
-    margin-right: 0.5em;
-  }
-  &:after {
-    content: '${({ label }) => label}';
-    display: inline-block;
+  width: 2em;
+  label {
+    display: none;
     font-size: 0.9em;
     font-family: 'Montserrat';
+    margin-left: 0.5em;
   }
   &:hover {
     width: 7em;
+    label {
+      display: inline-block;
+    }
   }
 `;
 
 const Networking = () => 
     <StyledContainer>
-        <Item className="lni lni-linkedin-original" href="https://www.linkedin.com/in/sainiajay96" target="_blank" label="LinkedIn"/>
-        <Item className="lni lni-github-original" href="https://github.com/sainiajay" target="_blank" label="Github"/>
-        <Item className="lni lni-twitter-original" href="https://twitter.com/sainiajay96" target="_blank" label="Twitter"/>
-        <Item className="lni lni-medium" href="https://medium.com/@sainiajay" target="_blank" label="Medium"/>
+        <Item href="https://www.linkedin.com/in/sainiajay96" target="_blank" >
+          <FontAwesomeIcon fixedWidth icon={faLinkedinIn} />
+          <label>LinkedIn</label>
+        </Item>
+        <Item href="https://github.com/sainiajay" target="_blank" >
+          <FontAwesomeIcon fixedWidth icon={faGithub} />
+          <label>Github</label>
+        </Item>
+        <Item href="https://twitter.com/sainiajay96" target="_blank" >
+          <FontAwesomeIcon fixedWidth icon={faTwitter} />
+          <label>Twitter</label>
+        </Item>
+        <Item href="https://medium.com/@sainiajay" target="_blank" label="Medium">
+          <FontAwesomeIcon fixedWidth icon={faMediumM} />
+          <label>Medium</label>
+        </Item>
     </StyledContainer>
 
 export default Networking;
