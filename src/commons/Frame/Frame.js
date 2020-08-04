@@ -41,7 +41,7 @@ export const BackgroundTextLayer = styled.div`
 const withFrame = (Element) => forwardRef((props, ref) => {
     return (
         <Section id={props.id} ref={ref}>
-            <Element />
+            <Element {...props}/>
         </Section>
     );
 
