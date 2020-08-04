@@ -41,38 +41,14 @@ const StyledContainer = styled.main`
   min-height: 100vh;
 `;
 
-const sectionsList = [{
-  Element: Hello,
-  id: "hello"
-}, 
-{
-  Element: Projects,
-  id: "projects"
-},
-{
-  Element: AboutMe,
-  id: "about-me"
-},
-{
-  Element: Work,
-  id: "work"
-},
-{
-  Element: Skills,
-  id: "skills"
-},
-{
-  Element: HireMe,
-  id: "hire-me"
-}
-];
 
-const App = () => {
+
+const App = ({ data }) => {
 
   const theme = {
     font: {
       primary: 'Montserrat',
-      secondary: 'Istok Web',
+      secondary: 'Arvo',
     },
 
     color: {
@@ -104,17 +80,17 @@ const App = () => {
     tabWidth: 120,
     media
   };
-  
-  const sectionsRef = useRef([]);
 
   return (
     <ThemeProvider theme={theme}>
       <StyledContainer>
-        <Header sectionsRef={sectionsRef}/>
-        {
-          sectionsList
-            .map(({Element, id}, index) => (<Element key={id} id={id} ref={e => (sectionsRef.current[index] = e)} />))
-        }
+        <Header />
+        <Hello />
+        <Projects />
+        <AboutMe />
+        <Work data={data.jobs.edges}/>
+        <Skills />
+        <HireMe />
         <Footer />
         <Networking />
       </StyledContainer>

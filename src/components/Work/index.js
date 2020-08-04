@@ -270,59 +270,7 @@ const CompanyLogo = styled.a`
   }
 `;
 
-export const Work = () => {
-
-    const data = [
-        {
-            node: {
-                company: 'Deloitte Consulting',
-                url: 'https://www.deloittedigital.com/',
-                title: 'Consultant',
-                range: 'June, 2019 - Today',
-                img: deloitteLogo,
-                html: `
-                  <ul>
-                    <li>Write modern, performant, maintainable code for a diverse array of client and internal projects</li>
-                    <li>Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, Gatsby, React, Craft, Wordpress, Prismic, and Netlify</li>
-                    <li>Communicate with multi-disciplinary teams of engineers, designers, producers, and clients on a daily basis</li>
-                  </ul>
-                `
-            }
-        },
-        {
-            node: {
-                company: 'Tata Consultancy Services',
-                url: 'https://www.tcs.com',
-                title: 'Assistant Systems Engineer',
-                range: 'August, 2017 - May, 2019',
-                img: tcsLogo,
-                html: `
-                  <ul>
-                    <li>Developed and shipped highly interactive web applications for Apple Music using Ember.js</li>
-                    <li>Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs</li>
-                    <li>Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browsers</li>
-                  </ul>
-                `
-            }
-        },
-        {
-          node: {
-              company: 'Nayi Disha Studios',
-              url: 'http://nayidishastudios.com',
-              title: 'Image Processing Intern',
-              range: 'December, 2016 - January, 2017',
-              type: "PROFESSIONAL",
-              img: nayiDishaLogo,
-              html: `
-                <ul>
-                  <li>Developed and shipped highly interactive web applications for Apple Music using Ember.js</li>
-                  <li>Built and shipped the Apple Music Extension within Facebook Messenger leveraging third-party and internal APIs</li>
-                  <li>Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browsers</li>
-                </ul>
-              `
-          }
-      }
-    ];
+export const Work = ({ data }) => {
 
     return (
         <StyledContainer>
@@ -339,8 +287,9 @@ export const Work = () => {
             </SectionHeader>
             <JobsGrid>
               {
-                data && data.map(({ node }, i) => {
-                  const { title, url, company, range, html, img } = node;
+                data?.map(({ node }, i) => {
+                  const { html, frontmatter } = node;
+                  const { title, url, company, range, img } = frontmatter;
                   return (
                     <JobTile>
                       <CompanyLogo href={url} target="_blank">
