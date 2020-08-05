@@ -23,8 +23,7 @@ export const BackgroundTextLayer = styled.div`
     right: 0;
     left: 0;
     color: ${props => props.theme.color.bg.secondary};
-    align-items: center;
-    justify-content: center;
+    place-items: center;
     font-family: monospace;
     font-size: 400px;
     font-weight: bold;

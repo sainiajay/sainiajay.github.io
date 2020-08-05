@@ -86,7 +86,7 @@ const App = ({ data }) => {
       <StyledContainer>
         <Header />
         <Hello />
-        <Projects />
+        <Projects data={data.featuredProjects.edges}/>
         <AboutMe />
         <Work data={data.jobs.edges}/>
         <Skills />

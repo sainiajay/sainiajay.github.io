@@ -5,6 +5,7 @@ company: 'Tata Consultancy Services'
 location: 'Gurgaon'
 range: 'August, 2017 - June, 2019'
 url: 'https://www.tcs.com'
+logo: 'logo/tcs.png'
 ---
 
 - Developed and shipped highly interactive web applications for Apple Music using Ember.js

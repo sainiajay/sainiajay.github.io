@@ -5,6 +5,7 @@ company: 'Nayi Disha Studios'
 location: 'New Delhi'
 range: 'Dec, 2016 - Jan, 2017'
 url: 'http://nayidishastudios.com'
+logo: 'logo/nayi_disha.png'
 ---
 
 - Developed and shipped highly interactive web applications for Apple Music using Ember.js

@@ -5,6 +5,7 @@ company: 'Deloitte Consulting'
 location: 'Bangalore'
 range: 'July, 2019 - Present'
 url: 'https://www.deloittedigital.com'
+logo: 'logo/deloitte.svg'
 ---
 
 - Developed and shipped highly interactive web applications for Apple Music using Ember.js

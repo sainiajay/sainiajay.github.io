@@ -166,9 +166,10 @@ const Featured = ({ data }) => {
         <p>I build my personal projects with completely with passion and aim precisely to learn something new.</p>
     </SectionHeader>
       <div>
-        {data &&
-          data.map((p, i) => {
-            const { github, url, title, img, tech, html  } = p;
+        {
+          data?.map(({ node }, i) => {
+            const { html, frontmatter } = node;
+            const { github, url, title, image, tech } = frontmatter;
 
             return (
               <StyledProject key={i}>
@@ -211,7 +212,7 @@ const Featured = ({ data }) => {
                   href={url ? URLSearchParams : github ? github : '#'}
                   target="_blank"
                   rel="nofollow noopener noreferrer">
-                  <StyledFeaturedImg src={img} alt={title} />
+                  <StyledFeaturedImg src={image} alt={title} />
                 </StyledImgContainer>
               </StyledProject>
             );
@@ -221,33 +222,4 @@ const Featured = ({ data }) => {
   );
 };
 
-const projects = [
-   {
-      title: 'Leetcode Clone',
-      github: '',
-      url: '#',
-      img: leetcode,
-      tech: ['Java', 'SpringBoot', 'MongoDB', 'React'],
-      html: `Inspired by leetcode.com. Here aspiring software engineers can explore and practice wide variety of algorithmic problems.`
-   },
-   {
-      title: 'Blackbox',
-      github: '',
-      url: '#',
-      img: blackbox,
-      tech: ['Go', 'Docker SDK'],
-      html: `Blackbox is sandbox in which runs linear programs written in Java in a secure environment, tests and evaluates them against given set of test cases. The tool is perfectly suitable for assessing code received from end user.`
-   },
-   {
-      title: 'Algorithm Visualizer',
-      github: 'https://github.com/sainiajay/AlgoVisualizer',
-      url: '#',
-      img: pathfinder,
-      tech: ['ReactJS', 'Gatsby'],
-      html: `This project helps understand students on how several popular data structures and algorithms functions. Being interactive and ability to accept custom inputs from user makes it really cool tool for students.`
-   }
-];
-
-const Projects = () => <Featured data={projects} />
-
-export default withFrame(Projects, 'projects', 'Projects');
+export default withFrame(Featured, 'projects', 'Projects');

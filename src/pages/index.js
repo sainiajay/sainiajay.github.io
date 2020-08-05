@@ -33,6 +33,27 @@ export const pageQuery = graphql`
             location
             range
             url
+            logo
+          }
+          html
+        }
+      }
+    }
+
+    featuredProjects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: [frontmatter___order], order: ASC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            order
+            featured
+            title
+            url
+            github
+            tech
+            image
           }
           html
         }

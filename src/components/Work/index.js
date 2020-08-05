@@ -271,7 +271,6 @@ const CompanyLogo = styled.a`
 `;
 
 export const Work = ({ data }) => {
-
     return (
         <StyledContainer>
             <SectionHeader>
@@ -289,11 +288,11 @@ export const Work = ({ data }) => {
               {
                 data?.map(({ node }, i) => {
                   const { html, frontmatter } = node;
-                  const { title, url, company, range, img } = frontmatter;
+                  const { title, url, company, range, logo } = frontmatter;
                   return (
                     <JobTile>
                       <CompanyLogo href={url} target="_blank">
-                        <img src={img} alt={company}/>
+                        <img src={logo} alt={company}/>
                       </CompanyLogo>
                       <TileHeader>
                           <StyledJobTitle>{title}</StyledJobTitle>
@@ -311,59 +310,4 @@ export const Work = ({ data }) => {
     );
 }
 
-export default withFrame(Work, 'work', '');
-
-{/* <StyledTabs>
-<StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyPressed(e)}>
-    {
-        data && data.map(({ node }, i) => {
-            const { company } = node;
-            return (
-                <li key={i}>
-                    <StyledTabButton
-                        isActive={activeTabId === i}
-                        onClick={() => setActiveTabId(i)}
-                        ref={el => (tabs.current[i] = el)}
-                        id={`tab-${i}`}
-                        role="tab"
-                        aria-selected={activeTabId === i ? true : false}
-                        aria-controls={`panel-${i}`}
-                        tabIndex={activeTabId === i ? '0' : '-1'}>
-                        <span>{company}</span>
-                    </StyledTabButton>
-                </li>
-            );
-        })
-    }
-    <StyledHighlight activeTabId={activeTabId} />
-</StyledTabList>
-{
-    data && data.map(({ node }, i) => {
-        const { title, url, company, range, html } = node;
-        return (
-        <StyledTabContent
-            key={i}
-            isActive={activeTabId === i}
-            id={`panel-${i}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${i}`}
-            tabIndex={activeTabId === i ? '0' : '-1'}
-            hidden={activeTabId !== i}>
-            <StyledJobTitle>
-                <span>{title}</span>
-                <StyledCompany>
-                    <span>&nbsp;@&nbsp;</span>
-                    <a href={url} target="_blank" rel="nofollow noopener noreferrer">
-                        {company}
-                    </a>
-                </StyledCompany>
-            </StyledJobTitle>
-            <StyledJobDetails>
-                <span>{range}</span>
-            </StyledJobDetails>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-        </StyledTabContent>
-        );
-    })
-}
-</StyledTabs> */}
+export default withFrame(Work, 'work');
