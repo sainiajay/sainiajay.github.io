@@ -7,17 +7,17 @@ const StyledContainer = styled.div`
     position: fixed;
     left: 0;
     margin-left: 10px;
-    top: calc(50vh - 120px);
+    top: 50vh;
+    transform: translateY(-50%);
 `;
 
 const Item = styled.a`
   margin: 1em 0.5em;
   display: block;
-  font-size: 16px;
+  font-size: 1.5em;
   color: ${props => props.theme.color.text.primary};
   line-height: 2em;
-  align-self: flex-end;
-  background-color: rgba(15, 20, 30, .9);
+  background-color: rgba(0, 0, 0, .9);
   color: #fff;
   border-radius: 1em;
   position: relative;
@@ -30,6 +30,9 @@ const Item = styled.a`
     font-size: 0.9em;
     font-family: 'Montserrat';
     margin-left: 0.5em;
+  }
+  svg {
+    vertical-align: middle;
   }
   &:hover {
     width: 7em;
@@ -53,7 +56,7 @@ const Networking = () =>
           <FontAwesomeIcon fixedWidth icon={faTwitter} />
           <label>Twitter</label>
         </Item>
-        <Item href="https://medium.com/@sainiajay" target="_blank" label="Medium">
+        <Item href="https://medium.com/@sainiajay" target="_blank">
           <FontAwesomeIcon fixedWidth icon={faMediumM} />
           <label>Medium</label>
         </Item>
