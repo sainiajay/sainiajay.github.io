@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Menu from '../../components/Menu';
-import logo from './../../assets/img/logo.png';
-import { Section } from './../../commons/Frame/Frame';
+import Logo from '../../commons/Logo';
 
 const StyledContainer = styled.header`
   position: fixed;
@@ -38,19 +36,18 @@ const StyledLogoContainer = styled.div`
   max-width: ${props => props.theme.logo.width};
   max-height: ${props => props.theme.logo.width};
   position: relative;
-  display: flex;
   padding: 10px;
   cursor: pointer;
-  img {
+  svg, img {
     display: block;
     width: 100%;
     height: 100%;
   }
 `;
 
-const ActiveMenuContainer = styled.div`
+const NameContainer = styled.div`
   display: flex;
-  font-weight: 900;
+  font-weight: bold;
   letter-spacing: 1em;
   margin: auto;
   font-size: 1.5em;
@@ -128,51 +125,22 @@ const StyledHamburgerInner = styled.div`
 
 const Header = (props) => {
   const [menuOpen, updateMenu] = useState(false);
-  const [currentSection, setCurrentSection] = useState('');
-
-  const intersectionObserverOptions = {
-    threshold: 0.1,
-    root: null
-  };
-  
-  const sectionIndicatorMap = {
-    'hello': '👋🏼',
-    'projects': 'Projects',
-    'about-me': '🤵',
-    'work': '💼',
-    'skills': 'Skills'
-  };
-
-  const intersectionObserverCallback = (entries) => {
-    for(const entry of entries) {
-      console.log(entry.target.id, entry.isIntersecting);
-      if(entry.isIntersecting && sectionIndicatorMap[entry.target.id]) {
-        setCurrentSection(sectionIndicatorMap[entry.target.id]);
-      }
-    }
-  };
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(intersectionObserverCallback, intersectionObserverOptions);
-  //   props.sectionsRef.current.forEach(ref => observer.observe(ref));
-  // }, []);
-
   return (
   <StyledContainer>
     <StyledNav>
       <StyledLogoContainer>
-        <img src={logo} alt="Ajay Saini" />
+        <Logo />
       </StyledLogoContainer>
-      <ActiveMenuContainer>
+      <NameContainer>
         AJAY SAINI
-      </ActiveMenuContainer>
+      </NameContainer>
       <StyledHamburger onClick={() => updateMenu(!menuOpen)}>
         <StyledHamburgerBox>
           <StyledHamburgerInner menuOpen={menuOpen} />
         </StyledHamburgerBox>
       </StyledHamburger>
     </StyledNav>
-    <Menu menuOpen={menuOpen}/>
+    {/* <Menu menuOpen={menuOpen}/> */}
   </StyledContainer>
   );
 }
