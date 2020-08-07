@@ -133,7 +133,7 @@ const Footer = () => {
                         </IconWrapper>
                     </SocialIcon>
                 </SocialContainer>
-                <Resume>
+                <Resume href="https://drive.google.com/uc?id=13B-dhMOoWjwiQgXKgwc5zeyoEVoaRO0o&export=download" download>
                     Download Resume
                 </Resume>
                 <ViewSource href="https://github.com/sainiajay/sainiajay.github.io" target="_blank" rel="noopner noreferer">
