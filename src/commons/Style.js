@@ -15,7 +15,7 @@ export const SectionHeader = styled.header.attrs({
 
 export const Eyebrow = styled.h5`
     font-size: 1em;
-    font-weight: lighter;
+    font-weight: 400;
     letter-spacing: 0.8em;
     line-height: 1.5;
     text-transform: uppercase;
