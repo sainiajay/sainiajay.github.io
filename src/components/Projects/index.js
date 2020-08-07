@@ -5,6 +5,9 @@ import withFrame from '../../commons/Frame/Frame';
 import blackbox from "../../assets/img/blackbox.png";
 import pathfinder from "../../assets/img/pathfinder.png";
 import leetcode from "../../assets/img/leetcode.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const StyledContainer = styled.div`
   flex-direction: column;
@@ -164,17 +167,17 @@ const Featured = ({ data }) => {
             What I've built
         </Heading>
         <p>I build my personal projects with completely with passion and aim precisely to learn something new.</p>
-    </SectionHeader>
+      </SectionHeader>
       <div>
         {
           data?.map(({ node }, i) => {
             const { html, frontmatter } = node;
-            const { github, url, title, image, tech } = frontmatter;
+            const { github, url, title, tagline, image, tech } = frontmatter;
 
             return (
               <StyledProject key={i}>
                 <StyledContent>
-                  <StyledLabel>Featured Project</StyledLabel>
+                  <StyledLabel>{tagline}</StyledLabel>
                   <StyledProjectName>
                     {title}
                   </StyledProjectName>
@@ -193,7 +196,7 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="GitHub Link">
-                        <i className="lni lni-github-original"/>
+                        <FontAwesomeIcon fixedWidth icon={faGithub} size="md"/>
                       </a>
                     )}
                     {url && (
@@ -202,7 +205,7 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="External Link">
-                        <i className="lni lni-link"/>
+                        <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} size="md"/>
                       </a>
                     )}
                   </StyledLinkWrapper>
