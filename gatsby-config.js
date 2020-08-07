@@ -1,4 +1,4 @@
-const config = require('./src/config');
+const config = require('./content/me');
 
 module.exports = {
     siteMetadata: {
@@ -11,12 +11,7 @@ module.exports = {
         'gatsby-plugin-fontawesome-css',
         'gatsby-plugin-react-helmet',
         'gatsby-transformer-remark',
-        {
-            resolve: 'gatsby-plugin-scroll-reveal',
-            options: {
-                once: false
-            }
-        },
+        'gatsby-transformer-json',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -24,5 +19,19 @@ module.exports = {
               path: `${__dirname}/content/`,
             },
         },
+        {
+            resolve: 'gatsby-plugin-scroll-reveal',
+            options: {
+                once: false
+            }
+        },
+        {
+            resolve: `gatsby-plugin-react-svg`,
+            options: {
+              rule: {
+                include: /\.svg/,
+              }
+            }
+        }
     ],
 }

@@ -16,15 +16,18 @@
     "gatsby": "^2.23.3",
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-transformer-json": "^2.4.11",
     "gatsby-transformer-remark": "^2.8.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-scripts": "3.4.1",
     "sal.js": "^0.7.7",
+    "scroll-out": "^2.2.11",
     "styled-components": "^5.1.1"
   },
   "scripts": {
