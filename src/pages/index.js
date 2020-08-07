@@ -14,11 +14,27 @@ export default Index;
 export const pageQuery = graphql`
   {
     site {
-        siteMetadata {
-          title
-          siteUrl
-          description
-        }
+      siteMetadata {
+        title
+        siteUrl
+        description
+      }
+    }
+
+    me: meJson {
+      twitterHandle
+      siteUrl
+      siteTitle
+      siteLanguage
+      siteKeywords
+      siteDescription
+      name
+      email
+      github
+      location {
+        city
+        country
+      }
     }
     
     jobs: allMarkdownRemark(

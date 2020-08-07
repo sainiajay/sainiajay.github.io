@@ -87,7 +87,7 @@ const App = ({ data }) => {
         <Header />
         <Hello />
         <Projects data={data.featuredProjects.edges}/>
-        <AboutMe />
+        <AboutMe data={data.me}/>
         <Work data={data.jobs.edges}/>
         <Skills />
         <HireMe />

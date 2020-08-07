@@ -42,7 +42,7 @@ const Image = styled.div`
     }
 `;
 
-const AboutMe = () => {
+const AboutMe = ({data}) => {
     return (
         <StyledContainer>
             <SectionHeader>
@@ -60,7 +60,7 @@ const AboutMe = () => {
                     <p>I began my coding journey in school and joined college to pursue engineering in Computer Science. Today, I work for with one of the Big-4s consulting firm.</p>
                 </Body>
                 <Image>
-                    <img src={myImage} alt="Ajay Saini" />
+                    <img src={myImage} alt={data.name} />
                 </Image>
             </StyledContent>
         </StyledContainer>
