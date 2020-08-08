@@ -37,12 +37,11 @@ const ContentWrapper = styled.div`
     margin: 40px auto;
     ${media.tiny`
         width: 100%;
-        padding: 4em;
+        padding: 2em;
     `}
     
     ${media.phone`
         width: 100%;
-        padding: 4em;
     `}
 
     ${media.tablet`
@@ -51,10 +50,9 @@ const ContentWrapper = styled.div`
     `}
 `;
 
-const Text = styled.div`
-    p {
-        font-size: 1.4em;
-    }
+const Text = styled.p`
+    display: block;
+    font-size: 1.4em;
 `;
 
 const ActionWrapper = styled.div`
