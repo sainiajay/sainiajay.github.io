@@ -63,9 +63,8 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            order
-            featured
             title
+            tagline
             url
             github
             tech
