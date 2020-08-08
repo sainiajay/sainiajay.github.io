@@ -1,16 +1,26 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import { media } from "../../commons/StyleUtils";
 
 export const Section = styled.section`
     position: relative;
     display: flex;
     min-height: 100vh;
     width: 100%;
-    justify-content: center;
-    & > * {
-        align-self: center;
-    }
-    padding: 50px 100px;
+    place-items: center;
+    place-content: center;
+
+    ${media.tiny`
+        padding: 1em 2em;
+    `}
+
+    ${media.phone`
+        padding: 2em 4em;
+    `}
+    
+    ${media.tablet`
+        padding: 4em 8em;
+    `}
 `;
 
 export const BackgroundTextLayer = styled.div`

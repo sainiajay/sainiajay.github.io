@@ -4,57 +4,55 @@ import { LogoInverted } from '../../commons/Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faTwitter, faGithub, faMediumM } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { media } from "../../commons/StyleUtils";
 
 const FooterWrapper = styled.footer`
     background: #000;
     color: #fff;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-    padding: 2em 15em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1.5fr));
+    grid-gap: 2em;
+    ${media.tiny`
+        padding: 1em 4em;
+    `}
+
+    ${media.phone`
+        padding: 2em 5em;
+    `}
+
+    ${media.tablet`
+        padding: 2em 15em;
+    `}
 `;
 
 const StyledLogoContainer = styled.div`
     display: flex;
-  max-width: 80px;
-  position: relative;
-  margin-bottom: 10px;
-  cursor: pointer;
-  svg, img {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+    max-width: 80px;
+    height: fit-content;
+    position: relative;
+    margin-bottom: 2em;
+    cursor: pointer;
+    svg, img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 const SocialContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    margin: 6px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
 `;
-
 
 const SocialIcon = styled.a`
-  font-size: 1.5em;
-  color: ${props => props.theme.color.text.primary};
-  line-height: 2em;
-  background-color: rgba(0, 0, 0, .9);
-  color: #fff;
-  border-radius: 1em;
-  position: relative;
-  padding: 0 0.4em;
-  transition: all 100ms linear;
-  overflow-x: hidden;
-  align-items: center;
-`;
-
-const IconWrapper = styled.div`
     display: flex;
-    width: 60px;
-    height: 60px;
-    place-content: center;
-    place-items: center;
+    position: relative;
+    overflow-x: hidden;
+    transition: all 100ms linear;
+    color: #fff;
+    font-size: 1.5em;
 `;
-
 
 const Copyright = styled.h5`
     display: flex;
@@ -64,7 +62,7 @@ const Copyright = styled.h5`
 
 const Resume = styled.a`
     padding: 1em;
-    margin: 1em 2em;
+    margin: 2em 0;
     border: 1px solid #fff;
     color: #fff;
     border-radius: 2px;
@@ -75,18 +73,38 @@ const Resume = styled.a`
 
 const ViewSource = styled.a`
     color: #fff;
-    margin: 1em 2.5em;
+    font-size: 1.2em;
 `;
 
-const ColumnContainer = styled.div`
+const LinksContainer = styled.div`
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    justify-content: space-between; 
+    margin: 2em;
+`;
+
+const BrandingContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+
+    ${media.tiny`
+        flex-direction: row;
+    `}
+    
+    ${media.phone`
+        flex-direction: row;
+    `}
+
+    ${media.tablet`
+        flex-direction: column;
+    `}
 `;
 
 const FlagContainer = styled.div`
     display: flex;
     align-items: center;
+    margin-top: 1em;
     label {
         margin: 0 10px;
     }
@@ -94,43 +112,39 @@ const FlagContainer = styled.div`
 
 const MyCountryFlag = styled.img`
     width: 2em;
-    margin: 1em 0;
+`;
+
+const FlagCoyrightWrapper = styled.div`
 `;
 
 const Footer = () => {
     return (
         <FooterWrapper>
-            <ColumnContainer>
+            <BrandingContainer>
                 <StyledLogoContainer>
                     <LogoInverted/>
                 </StyledLogoContainer>
-                <Copyright>&copy; 2020 Ajay Saini</Copyright>
-                <FlagContainer>
-                    <MyCountryFlag src="https://country-flags.scdn.co/flags/in.svg" />
-                    <label>India</label>
-                </FlagContainer>
-            </ColumnContainer>
-            <ColumnContainer>
+                <FlagCoyrightWrapper>
+                    <Copyright>&copy; 2020 Ajay Saini</Copyright>
+                    <FlagContainer>
+                        <MyCountryFlag src="https://country-flags.scdn.co/flags/in.svg" />
+                        <label>India</label>
+                    </FlagContainer>
+                </FlagCoyrightWrapper>
+            </BrandingContainer>
+            <LinksContainer>
                 <SocialContainer>
-                    <SocialIcon href="https://www.linkedin.com/in/sainiajay96" target="_blank" >
-                        <IconWrapper>
-                            <FontAwesomeIcon fixedWidth icon={faLinkedinIn} size="lg"/>
-                        </IconWrapper>
+                    <SocialIcon href="https://www.linkedin.com/in/sainiajay96" target="_blank">
+                        <FontAwesomeIcon fixedWidth icon={faLinkedinIn} size="lg"/>
                     </SocialIcon>
-                    <SocialIcon href="https://github.com/sainiajay" target="_blank" >
-                        <IconWrapper>
-                            <FontAwesomeIcon fixedWidth icon={faGithub} size="lg"/>
-                        </IconWrapper>
+                    <SocialIcon href="https://github.com/sainiajay" target="_blank">
+                        <FontAwesomeIcon fixedWidth icon={faGithub} size="lg"/>
                     </SocialIcon>
-                    <SocialIcon href="https://twitter.com/sainiajay96" target="_blank" >
-                        <IconWrapper>
-                            <FontAwesomeIcon fixedWidth icon={faTwitter} size="lg"/>
-                        </IconWrapper>
+                    <SocialIcon href="https://twitter.com/sainiajay96" target="_blank">
+                        <FontAwesomeIcon fixedWidth icon={faTwitter} size="lg"/>
                     </SocialIcon>
                     <SocialIcon href="https://medium.com/@sainiajay" target="_blank">
-                        <IconWrapper>
-                            <FontAwesomeIcon fixedWidth icon={faMediumM} size="lg"/>
-                        </IconWrapper>
+                        <FontAwesomeIcon fixedWidth icon={faMediumM} size="lg"/>
                     </SocialIcon>
                 </SocialContainer>
                 <Resume href="https://drive.google.com/uc?id=13B-dhMOoWjwiQgXKgwc5zeyoEVoaRO0o&export=download" download>
@@ -140,7 +154,7 @@ const Footer = () => {
                     View source on Github &nbsp;
                     <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} />
                 </ViewSource>
-            </ColumnContainer>
+            </LinksContainer>
         </FooterWrapper>
     );
 };

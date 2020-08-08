@@ -1,6 +1,7 @@
 import React from 'react';
 import withFrame from '../../commons/Frame/Frame';
 import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
+import { media } from "../../commons/StyleUtils";
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -16,15 +17,38 @@ const CenterHeader = styled(SectionHeader)`
 `;
 
 const SuperHeading = styled(Heading)`
-    font-size: 4.5em;
-`
+    ${media.tiny`
+        font-size: 2em;
+    `}
+    
+    ${media.phone`
+        font-size: 3.5em;
+    `}
+
+    ${media.tablet`
+        font-size: 4.5em;
+    `}
+`;
+
 const ContentWrapper = styled.div`
     display: grid;
-    width: 60%;
     grid-gap: 2em;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin: auto;
-    margin-top: 40px;
+    margin: 40px auto;
+    ${media.tiny`
+        width: 100%;
+        padding: 4em;
+    `}
+    
+    ${media.phone`
+        width: 100%;
+        padding: 4em;
+    `}
+
+    ${media.tablet`
+        width: 70%;
+        padding: none;
+    `}
 `;
 
 const Text = styled.div`

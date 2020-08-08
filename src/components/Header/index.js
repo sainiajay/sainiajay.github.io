@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import { media } from "../../commons/StyleUtils";
 import Logo from '../../commons/Logo';
 
 const StyledContainer = styled.header`
@@ -8,19 +8,23 @@ const StyledContainer = styled.header`
   top: 0;
   right: 0;
   left: 0;
-  padding: 0px 50px;
   background-color: ${props => props.theme.color.bg.secondary};
   transition: ${({theme}) => theme.transition};
   z-index: 11;
-  filter: none !important;
-  pointer-events: auto !important;
-  user-select: auto !important;
-  box-shadow: ${({scrollDirection, theme}) => scrollDirection === 'up' ? `0 10px 30px -10px ${theme.color.shadowNavy}` : 'none'};
-  transform: translateY(
-    ${({scrollDirection, theme}) => (scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
-  );
   display: flex;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+
+  ${media.tiny`
+    padding: 0 1em;
+  `}
+
+  ${media.phone`
+    padding: 0 2em;
+  `}
+
+  ${media.tablet`
+    padding: 0 4em;
+  `}
 `;
 
 const StyledNav = styled.nav`
@@ -48,8 +52,9 @@ const StyledLogoContainer = styled.div`
 const NameContainer = styled.div`
   display: flex;
   font-weight: bold;
-  letter-spacing: 1em;
   margin: auto;
+  text-align: center;
+  letter-spacing: 1em;
   font-size: 1.5em;
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import withFrame from '../../commons/Frame/Frame';
+import { media } from "../../commons/StyleUtils";
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -8,10 +9,21 @@ const Wrapper = styled.div`
 `;
 
 const Line = styled.div`
-    font-size: 45px;
     line-height: 2em;
     font-weight: 900;
     text-align: center;
+    font-size: 2em;
+    ${media.tiny`
+        font-size: 2em;
+    `}
+
+    ${media.phone`
+        font-size: 3em;
+    `}
+
+    ${media.tablet`
+        font-size: 4em;
+    `}    
 `;
 
 export const BackgroundTextLayer = styled.div`
