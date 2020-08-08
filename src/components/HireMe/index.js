@@ -45,19 +45,21 @@ const ContentWrapper = styled.div`
     `}
 
     ${media.tablet`
-        width: 70%;
-        padding: none;
+        width: 60%;
+        padding: 0;
     `}
 `;
 
 const Text = styled.p`
     display: block;
     font-size: 1.4em;
+    margin: 1em 0;
 `;
 
 const ActionWrapper = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
+    margin: 1em 0;
 `;
 
 const Action = styled.a`
