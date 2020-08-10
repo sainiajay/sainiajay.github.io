@@ -4,35 +4,25 @@ import { SectionHeader, Eyebrow, Heading } from "../../commons/Style";
 import styled from "styled-components";
 import myImage from './../../assets/img/me.png';
 
-const StyledContainer = styled.div`
-    z-index: 2;
-`;
-
-// const Header = styled.header`
-//     font-size: 12px;
-//     margin: 10px 0;
-// `;
-
-// const StyledHeader = styled.h2`
-//     font-size: 2em;
-// `;
+const StyledContainer = styled.div``;
 
 const StyledContent = styled.div`
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    gap: 20px;
 `;
 
 const Body = styled.div`
-    width: 60%;
-    margin-right: 20px;
+    flex: 2 1 50%;
     p {
         font-size: 1.4em;
-    }
+    }  
 `;
 
 const Image = styled.div`
-    margin: 20px;
+    flex: 1 1;
+    display: flex;
+    place-content: center;
     img {
         border-radius: 2px;
         filter: grayscale(50);
