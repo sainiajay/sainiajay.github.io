@@ -47,7 +47,9 @@ export const pageQuery = graphql`
             title
             company
             location
-            range
+            date
+            endDate
+            location
             url
             logo
           }
