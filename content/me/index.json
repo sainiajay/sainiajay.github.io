@@ -1,5 +1,5 @@
 {
-    "siteTitle": "Ajay Saini",
+    "siteTitle": "Ajay Saini | Software Engineer",
     "siteDescription":
         "Ajay Saini is a software engineer based in Bangalore, India who specializes in building (and occasionally designing) exceptional websites, applications, and everything in between.",
     "siteKeywords":
@@ -14,5 +14,6 @@
     "email": "saini.ajay172@gmail.com",
     "github": "https://github.com/sainiajay",
     "twitterHandle": "@sainiajay96",
+    "image": "/logo_seo.svg",
     "resumeLink": "https://drive.google.com/uc?id=13B-dhMOoWjwiQgXKgwc5zeyoEVoaRO0o&export=download"
 }

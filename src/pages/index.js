@@ -5,7 +5,43 @@ import App from '../App';
 
 const Index = ({ data }) =>
     <Fragment>
-        <Helmet title={data.site.siteMetadata.title}/>
+        <Helmet>
+          <script type="application/ld+json">
+          {`
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "url": "${data.site.siteMetadata.siteUrl}",
+                "name": "${data.me.name}",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+9891239146",
+                  "contactType": "Customer Support"
+                }
+              }
+          `}
+          </script>
+            {/* General tags */}
+            <title>{data.site.siteMetadata.title}</title>
+            <meta name="description" content={data.site.siteMetadata.description} />
+            <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+            <meta name="image" content={data.me.logo} />
+
+            {/* OpenGraph tags */}
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
+            <meta property="og:title" content={data.site.siteMetadata.title} />
+            <meta property="og:description" content={data.site.siteMetadata.description} />
+            <meta property="og:image" content={data.me.image} />
+            {/* <meta property="fb:app_id" content={seo.social.fbAppID} /> */}
+
+            {/* Twitter Card tags */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:creator" content={data.me.twitterHandle} />
+            <meta name="twitter:title" content={data.site.siteMetadata.title} />
+            <meta name="twitter:description" content={data.site.siteMetadata.description} />
+            <meta name="twitter:image" content={data.me.image}/>
+        </Helmet>
         <App data={data}/>
     </Fragment>
 
@@ -31,6 +67,7 @@ export const pageQuery = graphql`
       name
       email
       github
+      image
       location {
         city
         country
