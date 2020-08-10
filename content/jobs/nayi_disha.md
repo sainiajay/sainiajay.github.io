@@ -1,5 +1,6 @@
 ---
-date: '2016-12-1'
+date: '2015-12-29'
+endDate: '2016-01-30'
 title: 'Image Processing Intern'
 company: 'Nayi Disha Studios'
 location: 'New Delhi'

@@ -1,5 +1,6 @@
 ---
 date: '2017-08-27'
+endDate: '2019-06-01'
 title: 'Assistant Systems Engineer'
 company: 'Tata Consultancy Services'
 location: 'Gurgaon'
