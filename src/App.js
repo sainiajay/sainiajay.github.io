@@ -6,6 +6,7 @@ import Hello from './components/Hello';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Work from './components/Work';
+import Jobs from './components/Jobs';
 import Header from './components/Header';
 import Networking from './components/Networking';
 import AboutMe from './components/AboutMe';
@@ -88,11 +89,12 @@ const App = ({ data }) => {
         <Hello />
         <Projects data={data.featuredProjects.edges}/>
         <AboutMe data={data.me}/>
-        <Work data={data.jobs.edges}/>
+        {/* <Work data={data.jobs.edges}/> */}
+        <Jobs data={data.jobs.edges}/>
         <Skills />
         <HireMe />
         <Footer />
-        <Networking />
+        {/* <Networking /> */}
       </StyledContainer>
     </ThemeProvider>
   );
