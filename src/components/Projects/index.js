@@ -105,17 +105,15 @@ const StyledLinkWrapper = styled.div`
   }
 `;
 
-const StyledFeaturedImg = styled.img`
-  width: 100%;
-  max-width: 100%;
-  vertical-align: middle;
-  border-radius: 4px;
-  position: relative;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1) brightness(90%);
-`;
-
 const StyledImgContainer = styled.a`
+  height: 75%;
+  position: relative;
+  filter: grayscale(100%) contrast(1) brightness(90%);
+  background-image: url(${props => props.image});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 4px;
   z-index: 1;
   grid-column: 1 / -1;
   grid-row: 1 / 3;
@@ -125,33 +123,9 @@ const StyledImgContainer = styled.a`
   `}
   ${media.desktop`
     grid-column: 6 / -1;
-    grid-row: 1 / -1;
   `}
-  position: relative;
-  &:hover,
-  &:focus {
-    background: transparent;
-    &:before,
-    ${StyledFeaturedImg} {
-      background: transparent;
-      filter: none;
-    }
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    mix-blend-mode: screen;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 60%);
-    ${media.tablet`
-      background: none;
-    `}
+  &:hover {
+    filter: none;
   }
 `;
 
@@ -237,7 +211,7 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="GitHub Link">
-                        <FontAwesomeIcon fixedWidth icon={faGithub} size="md"/>
+                        <FontAwesomeIcon fixedWidth icon={faGithub} size="1x"/>
                       </a>
                     )}
                     {url && (
@@ -246,19 +220,17 @@ const Featured = ({ data }) => {
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="External Link">
-                        <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} size="md"/>
+                        <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} size="1x"/>
                       </a>
                     )}
                   </StyledLinkWrapper>
                 </StyledContent>
 
                 <StyledImgContainer
+                  image={image}
                   href={url || github || '#'}
                   target="_blank"
-                  data-image={image}
-                  rel="nofollow noopener noreferrer">
-                  <StyledFeaturedImg src={image} alt={title} />
-                </StyledImgContainer>
+                  rel="nofollow noopener noreferrer" />
               </StyledProject>
             );
           })}
